@@ -1,7 +1,13 @@
+import { SongProvider } from "./context/SongProvider";
+import TrendingSongs from "./trending_songs/page";
+
 export default function Home() {
   return (
-    <div>
-        <h1>Hello World!!</h1>
-    </div>
+    <SongProvider>
+      <div>
+        <h1>Home</h1>
+          <TrendingSongs />
+      </div>
+    </SongProvider>
   )
 }

@@ -1,13 +1,17 @@
- import React from 'react';
+'use client';
+import React from 'react';
+import { useSong } from "../context/SongProvider";
 
-const TrackListItem = ({ songTitle, artistName, imgSrc, duration }) => {
+const TrackListItem = ({ track, track: { title, duration, artist, album } }) => {
+    const { handleSongClick } = useSong();
+    
     return (
-        <li>
-             <img src={ imgSrc } alt="" />
+        <li onClick={ () => handleSongClick(track)}>
+             <img src={ album.cover_xl } alt="" />
 
             <div>
-                <strong>{ songTitle }</strong>
-                <span>{ artistName }</span>
+                <strong>{ title }</strong>
+                <span>{ artist.name }</span>
             </div>
 
             <span>{ duration }</span>
