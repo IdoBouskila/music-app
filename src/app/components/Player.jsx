@@ -6,9 +6,15 @@ const Player = () => {
     const { handleNextSong, handlePreviousSong, currentSong: { album, title, artist }, audioRef } = useSong();
 
     const handleAudioToggle = () => {
-        const isPlaying = ! audioRef.current.paused;
+        // check if sound file exists
+        if(isNaN(audioRef.current.duration)) {
+            return;
+        }
         
+        const isPlaying = ! audioRef.current.paused;
+
         isPlaying ? audioRef.current.pause() : audioRef.current.play();
+        
     };
 
     return (
