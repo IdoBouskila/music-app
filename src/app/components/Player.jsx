@@ -3,20 +3,28 @@ import React from 'react';
 import { useSong } from '../context/SongProvider';
 
 const Player = () => {
-    const { currentSong, audioRef } = useSong();
+    const { handleNextSong, handlePreviousSong, currentSong: { album, title, artist }, audioRef } = useSong();
 
     const handleAudioToggle = () => {
         const isPlaying = ! audioRef.current.paused;
         
         isPlaying ? audioRef.current.pause() : audioRef.current.play();
-    }
+    };
 
     return (
-        <div>
-            <img src={ currentSong?.album?.cover_xl} alt="" />
-            <br />
-            <button onClick={ handleAudioToggle }>Play / Pause</button>
-        </div>
+        <>
+            <div>
+                <img src={ album?.cover_xl} alt="" />
+                <span>{ title }</span>
+                <span>{ artist?.name}</span>
+
+                <div className='audio-control-buttons'>
+                    <button onClick={ handlePreviousSong }>Previous</button>
+                    <button onClick={ handleAudioToggle }>Play / Pause</button>
+                    <button onClick={ handleNextSong }>Next</button>
+                </div>
+            </div>
+        </>
     );
 };
 

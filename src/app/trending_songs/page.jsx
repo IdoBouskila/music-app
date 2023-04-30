@@ -10,9 +10,11 @@ export default async function TrendingSongsList() {
 
             <ul>
                 {
-                    tracks.map(track =>
+                    tracks.map((track, index) =>
                         <TrackListItem
                             key={ track.id }
+                            index={ index }
+                            playlist={ tracks }
                             track={ track }
                         />
                     )

@@ -2,11 +2,11 @@
 import React from 'react';
 import { useSong } from "../context/SongProvider";
 
-const TrackListItem = ({ track, track: { title, duration, artist, album } }) => {
+const TrackListItem = ({ index, playlist, track: { title, duration, artist, album } }) => {
     const { handleSongClick } = useSong();
     
     return (
-        <li onClick={ () => handleSongClick(track)}>
+        <li onClick={ () => handleSongClick(index, playlist) }>
              <img src={ album.cover_xl } alt="" />
 
             <div>
@@ -15,7 +15,6 @@ const TrackListItem = ({ track, track: { title, duration, artist, album } }) => 
             </div>
 
             <span>{ duration }</span>
-            <span>Play / Pause</span>
         </li>
     );
 };
