@@ -12,14 +12,34 @@ export async function fetchTopTracks() {
     return data;
 }
 
-// Fetching each artist individual for more inforamtion about 
 export async function fetchTopArtist() {
     const endpoint = '/editorial/0/charts';
 
     const { artists: { data } } = await fetchData(endpoint)
     
-    const promises = data.map(artist => fetchData(`/artist/${artist.id}`));
+    const promises = data.map(artist => fetchArtist(artist.id));
     const topArtists = await Promise.all(promises);
     
     return topArtists;
+}
+
+export async function fetchArtist(id) {
+    const endpoint = `/artist/${ id }`;
+    const data = await fetchData(endpoint);
+    
+    return data;
+}
+
+export async function fetchArtistTopTracks(id) {
+    const endpoint = `/artist/${ id }/top`;
+    const { data } = await fetchData(endpoint);
+    
+    return data;
+}
+
+export async function fetchArtistAlbums(id, { limit = 9999 }) {
+    const endpoint = `/artist/${ id }/albums?limit=${ limit }`;
+    const { data } = await fetchData(endpoint);
+    
+    return data;
 }
