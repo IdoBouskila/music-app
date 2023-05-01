@@ -1,5 +1,5 @@
 import { fetchTopTracks } from "@/utils/fetchers";
-import TrackListItem from "../components/TrackListItem";
+import TrackListItem from "../../components/TrackListItem";
 
 export default async function TrendingSongsList() {
     const tracks = await fetchTopTracks();

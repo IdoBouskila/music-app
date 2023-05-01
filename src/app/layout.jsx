@@ -1,4 +1,4 @@
-import { SongProvider } from "./context/SongProvider";
+import { SongProvider } from "../context/SongProvider";
 import './globals.css'
 
 export const metadata = {

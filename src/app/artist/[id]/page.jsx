@@ -1,5 +1,5 @@
-import AlbumListItem from "@/app/components/AlbumListItem";
-import TrackListItem from "@/app/components/TrackListItem";
+import AlbumListItem from "@/components/AlbumListItem";
+import TrackListItem from "@/components/TrackListItem";
 import { fetchArtist, fetchArtistAlbums, fetchArtistTopTracks } from "@/utils/fetchers";
 
 const ArtistPage = async ({ params: { id } }) => {

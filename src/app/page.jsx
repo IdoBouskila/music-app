@@ -1,4 +1,4 @@
-import Player from "./components/Player";
+import Player from "../components/Player";
 import TrendingSongs from "./trending_songs/page";
 
 export default function Home() {

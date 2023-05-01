@@ -1,5 +1,5 @@
 import { fetchTopArtist } from "@/utils/fetchers";
-import ArtistListItem from "../components/ArtistListItem";
+import ArtistListItem from "../../components/ArtistListItem";
 
 export default async function TrendingSongsList() {
     const artists = await fetchTopArtist();
