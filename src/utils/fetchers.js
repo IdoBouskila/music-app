@@ -5,17 +5,17 @@ async function fetchData(endpoint) {
     return await response.json();
 }
 
-export async function fetchTopTracks() {
-    const endpoint = '/editorial/0/charts';
-    const { tracks: { data } } = await fetchData(endpoint)
-    
+export async function fetchTopTracks({ limit = 10 }) {
+    const endpoint = `/chart/0/tracks?limit=${ limit }`;
+    const { data } = await fetchData(endpoint)
+
     return data;
 }
 
 export async function fetchTopArtist() {
-    const endpoint = '/editorial/0/charts';
+    const endpoint = '/chart/0/artists';
 
-    const { artists: { data } } = await fetchData(endpoint)
+    const { data } = await fetchData(endpoint)
     
     const promises = data.map(artist => fetchArtist(artist.id));
     const topArtists = await Promise.all(promises);
