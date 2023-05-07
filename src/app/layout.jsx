@@ -1,5 +1,5 @@
 import { SongProvider } from "../context/SongProvider";
-import './globals.css'
+import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +11,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <SongProvider>
-          { children }
+          <Sidebar />
+          
+          <main>
+            { children }
+          </main>
         </SongProvider>
       </body>
     </html>
