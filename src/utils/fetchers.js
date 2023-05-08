@@ -50,3 +50,17 @@ export async function fetchAlbum(id) {
     
     return data;
 }
+
+export async function fetchTopRadio() {
+    const endpoint = '/radio/top';
+    const { data } = await fetchData(endpoint);
+    
+    return data;
+}
+
+export async function fetchRadioTracklist(id) {
+    const endpoint = `/radio/${ id }/tracks`;
+    const { data } = await fetchData(endpoint);
+
+    return data;
+}

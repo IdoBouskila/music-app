@@ -26,6 +26,13 @@ const Sidebar = () => {
                         <FiUsers />
                     </NavLink>
                 </li>
+
+                <li>
+                    <NavLink slug='radio'>
+                        <FiRadio />
+                    </NavLink>
+                </li>
+
             </ul>
         </div>
     );
