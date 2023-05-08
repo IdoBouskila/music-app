@@ -1,7 +1,7 @@
 import { fetchTopRadio } from "@/utils/fetchers";
 import Link from "next/link";
 
-const page = async () => {
+export default async function TopRadio() {
     const radioList = await fetchTopRadio();
 
     return (
@@ -24,5 +24,3 @@ const page = async () => {
         </div>
     );
 };
-
-export default page;

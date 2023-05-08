@@ -1,7 +1,7 @@
 import TrackListItem from "@/components/TrackListItem";
 import { fetchRadioTracklist } from "@/utils/fetchers";
 
-const page = async ({ params }) => {
+export default async function RadioTrackList({ params }) {
     const tracks = await fetchRadioTracklist(params.id);
 
     return (
@@ -21,5 +21,3 @@ const page = async ({ params }) => {
         </div>
     );
 };
-
-export default page;
