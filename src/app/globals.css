@@ -1,5 +1,59 @@
+:root {
+  --color-light-background: #fafafe;
+}
+
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  outline: transparent;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background: linear-gradient(to top, #373658 0%, #373658 40%, #403154 100%);
+  height: 100vh;
+}
+
+.wrapper {
+  --sidebar-width: 6%;
+
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--sidebar-width);
+  font-size: 1.3rem;
+}
+
+.sidebar ul {
+  display: flex;
+  gap: 1.3rem;
+  flex-direction: column;
+}
+
+.sidebar .app-logo {
+  background-image: linear-gradient(326deg, #861657 0%, #ffa69e 74%);
+  color: #fff;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.sidebar svg {
+  color: #9c9b9b;
+  transition: .3s all;
+}
+
+.sidebar .active svg, .sidebar svg:hover {
+  color: #fff;
+  filter: drop-shadow(0px 0px 9px rgba(255, 255, 255, 0.5));
+}
+
 }
