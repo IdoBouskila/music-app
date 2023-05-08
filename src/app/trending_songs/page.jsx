@@ -1,8 +1,8 @@
 import { fetchTopTracks } from "@/utils/fetchers";
 import TrackListItem from "../../components/TrackListItem";
 
-export default async function TrendingSongsList() {
-    const tracks = await fetchTopTracks();
+export default async function TrendingSongsList({ isRoute = true }) {
+    const tracks = await fetchTopTracks(isRoute && { limit: 50 });
 
     return (
         <div>
