@@ -1,5 +1,5 @@
 import TrackListItem from "@/components/TrackListItem";
-import fetchAlbum from "@/utils/fetchers";
+import { fetchAlbum } from "@/utils/fetchers";
 
 const AlbumPage = async ({ params }) => {
     const { title, artist, cover_xl, release_date, duration, tracks: { data: tracks } } = await fetchAlbum(params.id);

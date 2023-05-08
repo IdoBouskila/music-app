@@ -44,7 +44,7 @@ export async function fetchArtistAlbums(id, { limit = 9999 }) {
     return data;
 }
 
-export default async function fetchAlbum(id) {
+export async function fetchAlbum(id) {
     const endpoint = `/album/${ id }`;
     const data = await fetchData(endpoint);
     
