@@ -1,59 +1,106 @@
 :root {
   --color-light-background: #fafafe;
+  --color-text-light: #fafafe;
+  --color-text-dark: #2d2e37;
+  --color-text-gray: rgba(0, 0, 0, 0.2);
 }
 
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
   outline: transparent;
   box-sizing: border-box;
-  list-style: none;
+  text-decoration: none;
 }
 
 body {
-  background: linear-gradient(to top, #373658 0%, #373658 40%, #403154 100%);
   height: 100vh;
 }
 
-.wrapper {
-  --sidebar-width: 6%;
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+}
 
-  display: flex;
+.wrapper {
+  --sidebar-width: 10%;
+  --player-height: 10%;
+  display: grid;
   height: 100%;
+  grid-template-areas:
+  "sidebar main main"
+  "sidebar main main" 
+  "player player player";
+  grid-template-rows: auto auto var(--player-height);
+  grid-template-columns: var(--sidebar-width) auto auto;
 }
 
 .sidebar {
+  --color-primary-sidebar: rgb(205, 25, 179);
+  --padding-left: 1.4em;
   display: flex;
-  padding: 2rem 0;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: var(--sidebar-width);
-  font-size: 1.3rem;
+  justify-content: space-around;
+  grid-area: sidebar;
+  border-bottom-left-radius: 2em;
+  background: linear-gradient(to bottom, #0a1437, #29376a);
+}
+
+.sidebar > *:not(div),
+.sidebar div > *:not(ul){
+  padding-left: var(--padding-left);
+}
+
+.sidebar .app-logo {
+  background: none;
+}
+
+.sidebar .app-logo > svg{
+  padding: 0.2em;
+  color: #fff;
+  font-size: 2.5em;
+  border-radius: 50%;
+  background-image: linear-gradient(326deg, var(--color-primary-sidebar) 0%, #ffa69e 80%);
 }
 
 .sidebar ul {
   display: flex;
-  gap: 1.3rem;
   flex-direction: column;
 }
 
-.sidebar .app-logo {
-  background-image: linear-gradient(326deg, #861657 0%, #ffa69e 74%);
-  color: #fff;
-  font-size: 2.5rem;
-  border-radius: 50%;
-  padding: 8px;
+.sidebar a > * {
+  font-size: 1em;
+  color: var(--color-text-light);
 }
 
-.sidebar svg {
-  color: #9c9b9b;
-  transition: .3s all;
+.sidebar a {
+  display: flex;
+  padding: 1em 0 1em var(--padding-left);
+  align-items: center;
+  gap: 1ch;
+  /* workaround for animated background images as they are currently not supported yet (May 2023) */
+  background: linear-gradient(90deg, rgba(205, 25, 179, 0.4) 0%, rgba(205, 25, 179, 0) 50%);
+  background-position-x: -200px;
+  background-repeat: no-repeat;
+  transition: background-position .4s ease-in-out;
 }
 
-.sidebar .active svg, .sidebar svg:hover {
-  color: #fff;
-  filter: drop-shadow(0px 0px 9px rgba(255, 255, 255, 0.5));
+.sidebar a.active,
+.sidebar a:hover {
+  background-position-x: 0;
 }
 
+.sidebar a.active > svg,
+.sidebar a:hover:not(.app-logo) > svg {
+  color: var(--color-primary-sidebar);
+}
+
+.sidebar h2 {
+  margin-bottom: 1.4rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-primary-sidebar);
 }
