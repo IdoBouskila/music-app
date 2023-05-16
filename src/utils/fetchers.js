@@ -80,6 +80,6 @@ export async function fetchSearchData(query, { limit = 3 } = {}) {
 }
 
 export async function fetchProxySearchData(query) {
-    const response = await fetch(`http://localhost:3000/api/search?q=${ query }`);
+    const response = await fetch(`/api/search?q=${ query }`);
     return await response.json();
 }
