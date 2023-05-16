@@ -136,7 +136,7 @@ button {
 }
 
 .search-results-container div:not(:last-child) {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid var(--color-text-gray);
 }
 
 .search-results-container div {
@@ -166,4 +166,98 @@ button {
   width: 2.4em;
   height: 2.4em;
   border-radius: 50%;
+}
+
+main {
+  grid-area: main-container;
+  padding: 2em 0;
+}
+
+.home-container {
+  display: grid;
+  height: 100%;
+  column-gap: 12%;
+  grid-template-areas:
+  'top-tracks .'
+  'top-tracks top-artists'
+  'top-tracks playlists';
+  grid-template-rows: 10vh 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home-container h2 {
+  color: var(--color-text-light);
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.home-container {
+  grid-area: top-tracks;
+}
+
+.home-container .top-artists-container {
+  grid-area: top-artists;
+}
+
+.top-artists-container,
+.trending-songs-container {
+  color: var(--color-text-light);
+}
+
+.trending-songs-container ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.trending-songs-container ul li {
+  display: flex;
+  padding: 0.7em 1.2em;
+  gap: 1em;
+  align-items: center;
+  border-radius: 10em;
+  transition: background .15s ease-out;
+}
+
+.trending-songs-container ul li:hover {
+  background: #0e1a41;
+}
+
+.trending-songs-container ul li img {
+  width: 3em;
+  border-radius: 50%;
+}
+
+.trending-songs-container ul li .song-details {
+  display: flex;
+  flex: 1;
+  gap: 2em;
+  align-items: center;
+}
+
+.trending-songs-container ul li .song-details > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.2em;
+}
+
+.top-artists-container ul li .artist-details,
+.trending-songs-container ul li .song-details > div > a {
+  width: fit-content;
+  font-size: 0.85em;
+  color: var(--color-text-gray);
+}
+
+.trending-songs-container ul li .song-details > div > a:hover {
+  text-decoration: underline;
+}
+
+.top-artists-container .artist-container strong,
+.trending-songs-container ul li .song-details > div > strong {
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.trending-songs-container ul li .song-details .favorite {
+  color: var(--color-text-gray)
 }
