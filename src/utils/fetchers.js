@@ -64,3 +64,22 @@ export async function fetchRadioTracklist(id) {
 
     return data;
 }
+
+export async function fetchSearchData(query, { limit = 3 } = {}) {
+    const endpoint = (category) => `/search/${ category }?q=${ query }&limit=${ limit }`;
+    
+    const tracks = await fetchData(endpoint('track'));
+    const albums = await fetchData(endpoint('album'));
+    const artists = await fetchData(endpoint('artist'));
+
+    return {
+        track: tracks.data,
+        album: albums.data,
+        artist: artists.data,
+    };
+}
+
+export async function fetchProxySearchData(query) {
+    const response = await fetch(`http://localhost:3000/api/search?q=${ query }`);
+    return await response.json();
+}

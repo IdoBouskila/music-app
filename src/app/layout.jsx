@@ -17,12 +17,15 @@ export default function RootLayout({ children }) {
     <html lang='en' className={ rubik.className }>
       <body>
         <SongProvider>
-          <div className="wrapper">
+          <div className='wrapper'>
             <Sidebar />
             
-            <main>
-              { children }
-            </main>
+            <div className='main-container'>
+              <SearchBar />
+
+              <main>
+                { children }
+              </main>
           </div>
         </SongProvider>
       </body>

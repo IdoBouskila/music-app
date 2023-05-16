@@ -104,3 +104,66 @@ button {
   font-weight: 500;
   color: var(--color-primary-sidebar);
 }
+
+.searchbar {
+  position: relative;
+  display: flex;
+  width: 40%;
+  align-items: center;
+  grid-area: searchbar;
+  color: var(--color-text-light);
+}
+
+.searchbar input {
+  font-family: inherit;
+  padding: 0.4em;
+  width: 100%;
+  border: 0;
+  color: var(--color-text-gray);
+  background: none;
+}
+
+.searchbar input::placeholder {
+  opacity: 1;
+  color: var(--color-text-gray);
+}
+
+.search-results-container {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  word-break: break-word;
+}
+
+.search-results-container div:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.search-results-container div {
+  padding: 1em 0;
+}
+
+.search-results-container div strong {
+  display: block;
+  margin-bottom: 0.5em;
+  text-transform: capitalize;
+}
+
+.search-results-container div ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.search-results-container div ul li {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.search-results-container img {
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 50%;
+}
