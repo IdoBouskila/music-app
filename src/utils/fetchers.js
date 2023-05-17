@@ -5,14 +5,14 @@ async function fetchData(endpoint) {
     return await response.json();
 }
 
-export async function fetchTopTracks({ limit = 10 }) {
+export async function fetchTopTracks({ limit = 10 } = {}) {
     const endpoint = `/chart/0/tracks?limit=${ limit }`;
     const { data } = await fetchData(endpoint);
 
     return data;
 }
 
-export async function fetchTopArtist({ limit = 3 }) {
+export async function fetchTopArtist({ limit = 3 } = {}) {
     const endpoint = `/chart/0/artists?limit=${ limit }`;
 
     const { data } = await fetchData(endpoint);
@@ -44,7 +44,7 @@ export async function fetchArtistTopTracks(id) {
     return data;
 }
 
-export async function fetchArtistAlbums(id, { limit = 9999 }) {
+export async function fetchArtistAlbums(id, { limit = 9999 } = {}) {
     const endpoint = `/artist/${ id }/albums?limit=${ limit }`;
     const { data } = await fetchData(endpoint);
     
