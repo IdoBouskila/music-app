@@ -23,6 +23,12 @@ export async function fetchTopArtist({ limit = 3 }) {
     return topArtists;
 }
 
+export async function fetchTopPlaylists() {
+    const endpoint = `/chart/0/playlists`;
+    const { data } = await fetchData(endpoint);
+
+    return data;
+}
 export async function fetchArtist(id) {
     const endpoint = `/artist/${ id }`;
     const data = await fetchData(endpoint);
