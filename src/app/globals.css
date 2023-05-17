@@ -242,6 +242,7 @@ main {
 }
 
 .top-artists-container ul li .artist-details,
+.top-playlists-container .playlist-details span,
 .trending-songs-container ul li .song-details > div > a {
   width: fit-content;
   font-size: 0.85em;
@@ -253,13 +254,15 @@ main {
 }
 
 .top-artists-container .artist-container strong,
+.top-playlists-container .playlist-details strong,
 .trending-songs-container ul li .song-details > div > strong {
   color: var(--color-text-light);
   font-weight: 500;
 }
 
 .trending-songs-container ul li .song-details .favorite {
-  color: var(--color-text-gray)
+  color: var(--color-text-gray);
+  line-height: 0;
 }
 
 .top-artists-container li a {
@@ -272,7 +275,7 @@ main {
 
 .top-artists-container ul {
   display: flex;
-  gap: 2em;
+  gap: 0.5em;
 }
 
 .top-artists-container li a img {
@@ -284,6 +287,7 @@ main {
 .top-artists-container .artist-container {
   display: flex;
   flex-direction: column;
+  gap: 0.2em;
 }
 
 .artist-details span {
@@ -294,6 +298,54 @@ main {
   border-right: 1px solid var(--color-text-gray);
 }
 
+.top-artists-container li a:hover,
+.top-playlists-container ul li a:hover {
+  opacity: 0.75;
+}
+
+.top-artists-container li a:hover,
+.top-playlists-container ul li a:hover {
+  transition: opacity .2s ease-in-out;
+}
+
+.home-container .top-playlists-container {
+  grid-area: playlists;
+}
+
+.top-playlists-container {
+  margin-top: 4em;
+}
+
+.top-playlists-container img {
+  height: 5em;
+  width: 5em;
+  border-radius: 50%;
+}
+
+.top-playlists-container ul {
+  display: flex;
+  gap: 2em;
+}
+
+.top-playlists-container .playlist-details {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  max-width: 8em;
+}
+
+.top-playlists-container ul li {
+  flex: 1;
+}
+
+.top-playlists-container ul li a {
+  display: flex;
+  gap: 1em;
+}
+
+.top-playlists-container ul li a > div {
+  display: flex;
+}
 .carousel-container .inner-carousel  {
   overflow: hidden;
   mask-image: linear-gradient(90deg, rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0.4) 95%, rgba(0, 0, 0, 0.1) 100%);
