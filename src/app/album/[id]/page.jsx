@@ -1,4 +1,4 @@
-import TrackListItem from "@/components/TrackListItem";
+import TrackListItem from "@/components/list-items/TrackListItem";
 import { fetchAlbum } from "@/utils/fetchers";
 
 const AlbumPage = async ({ params }) => {

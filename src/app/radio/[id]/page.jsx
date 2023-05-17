@@ -1,4 +1,4 @@
-import TrackListItem from "@/components/TrackListItem";
+import TrackListItem from "@/components/list-items/TrackListItem";
 import { fetchRadioTracklist } from "@/utils/fetchers";
 
 export default async function RadioTrackList({ params }) {

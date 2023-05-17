@@ -1,7 +1,9 @@
 import { Rubik } from 'next/font/google';
-import { SongProvider } from '../context/SongProvider';
+import { SongProvider } from '@/context/SongProvider';
 import './globals.css';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/navigation/Sidebar';
+import Player from '@/components/others/Player';
+import SearchBar from '@/components/searchbar/SearchBar';
 
 export const metadata = {
   title: 'Music platform 🎶',
@@ -26,6 +28,9 @@ export default function RootLayout({ children }) {
               <main>
                 { children }
               </main>
+            </div>
+
+            <Player />
           </div>
         </SongProvider>
       </body>

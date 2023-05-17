@@ -1,5 +1,5 @@
 import { fetchTopArtist } from "@/utils/fetchers";
-import ArtistListItem from "@/components/ArtistListItem";
+import ArtistListItem from "@/components/list-items/ArtistListItem";
 
 export default async function TopArtists({ isRoute = true }) {
     const artists = await fetchTopArtist(isRoute && { limit: 50 });
