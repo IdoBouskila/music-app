@@ -24,6 +24,11 @@ button {
   cursor: pointer;
 }
 
+strong {
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
 .wrapper {
   --sidebar-width: 10.5%;
   --player-height: 10%;
@@ -264,9 +269,9 @@ main h2 {
   gap: 0.2em;
 }
 
-.top-artists-container ul li .artist-details,
+.top-artists-container .artist-details,
 .top-playlists-container .playlist-details span,
-.trending-songs-container ul li .song-details > div > a {
+.trending-songs-container .song-details > div > a {
   width: fit-content;
   font-size: 0.85em;
   color: var(--color-text-gray);
@@ -274,13 +279,6 @@ main h2 {
 
 .trending-songs-container ul li .song-details > div > a:hover {
   text-decoration: underline;
-}
-
-.top-artists-container .artist-container strong,
-.top-playlists-container .playlist-details strong,
-.trending-songs-container ul li .song-details > div > strong {
-  color: var(--color-text-light);
-  font-weight: 500;
 }
 
 .trending-songs-container ul li .song-details .favorite {
@@ -301,13 +299,15 @@ main h2 {
   gap: 0.5em;
 }
 
-.top-artists-container li a img {
+.top-artists-container li a img,
+.top-radio-container li a img {
   width: 6.5em;
   height: 6.5em;
   border-radius: 50%;
 }
 
-.top-artists-container .artist-container {
+.top-artists-container .artist-container,
+.top-radio-container li a {
   display: flex;
   flex-direction: column;
   gap: 0.2em;
@@ -321,11 +321,13 @@ main h2 {
   border-right: 1px solid var(--color-text-gray);
 }
 
+.top-radio-container li a:hover,
 .top-artists-container li a:hover,
 .top-playlists-container ul li a:hover {
   opacity: 0.75;
 }
 
+.top-radio-container li a:hover,
 .top-artists-container li a:hover,
 .top-playlists-container ul li a:hover {
   transition: opacity .2s ease-in-out;
