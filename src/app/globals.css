@@ -359,6 +359,11 @@ main {
 .top-playlists-container ul li a > div {
   display: flex;
 }
+
+.player {
+  grid-area: player;
+}
+
 .carousel-container .inner-carousel  {
   overflow: hidden;
   mask-image: linear-gradient(90deg, rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0.4) 95%, rgba(0, 0, 0, 0.1) 100%);
@@ -391,4 +396,131 @@ main {
 
 .carousel-header-container .carousel-buttons button:hover {
   color: var(--color-text-dark);
+}
+
+.player {
+  display: flex;
+  height: 5vh;
+  margin: auto 0;
+  padding: 0 2.8em;
+  align-items: center;
+}
+
+.player img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 1.25em;
+}
+
+.player .song-details {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+}
+
+.player .song-title, .player .duration {
+  color: var(--color-text-light);
+  font-size: 1em;
+}
+
+.player .artist-name {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--color-text-gray);
+}
+
+.player .control-buttons {
+  display: flex;
+  gap: 0.25em;
+  margin-left: 3.5em;
+  justify-content: center;
+}
+
+.player button {
+  font-size: 2em;
+  color: #fff;
+  line-height: 0;
+}
+
+.player .play-pause-btn {
+  padding: 0.15em;
+  border-radius: 50%;
+  background: #1f567f;
+}
+
+.player .wave-container, .wave-container .disable {
+  position: relative;
+  height: 100%;
+  width: 300px;
+  flex: 1;
+  margin: 0 2.5em;
+  mask-image: linear-gradient(
+      180deg,
+      rgb(0, 0, 0) 0%,
+      rgb(0, 0, 0) 50%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.5) 100% );
+}
+
+.player .duration {
+  font-size: 0.8em;
+}
+
+.player .volume-slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 1vw;
+}
+
+.volume-slider-container button:hover + .slider-root, .slider-root:hover {
+  display: flex;
+}
+
+.slider-root {
+  position: absolute;
+  width: 100%;
+  display: none;
+  align-items: center;
+  bottom: 100%;
+  left: 0;
+}
+
+.slider-root[data-orientation='vertical'] {
+  flex-direction: column;
+  height: 100px;
+}
+
+.slider-track {
+  position: relative;
+  flex-grow: 1;
+  background-color: #9094a7;
+  border-radius: 100px;
+}
+
+.slider-track[data-orientation='vertical'] {
+  width: 3px;
+}
+
+.slider-range {
+  position: absolute;
+  border-radius: 100px;
+  background-color: #1cc39f;
+}
+
+.slider-range[data-orientation='vertical'] {
+  width: 100%;
+}
+
+.player.disable * {
+  color: var(--color-text-gray);
+}
+
+.player.disable .wave-container::after {
+  content: '';
+  position: absolute;
+  border: 1px solid var(--color-text-gray);
+  width: 100%;
+  top: 50%;
+  z-index: -2;
 }
