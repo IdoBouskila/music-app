@@ -223,6 +223,22 @@ main h2 {
   grid-area: top-tracks;
 }
 
+main > .top-artists-container ul,
+.top-radio-container ul {
+  display: flex;
+  gap: 1.5em;
+  flex-wrap: wrap;
+  overflow: auto;
+  height: 100%;
+}
+
+.top-artists-container ul li,
+.top-radio-container ul li {
+  flex: 1;
+  flex-basis: 100%;
+  max-width: 15em;
+}
+
 .top-artists-container,
 .trending-songs-container {
   height: 100%;
@@ -230,7 +246,8 @@ main h2 {
   color: var(--color-text-light);
 }
 
-.trending-songs-container ul {
+.trending-songs-container ul,
+.top-artists-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -272,7 +289,7 @@ main h2 {
 .top-artists-container .artist-details,
 .top-playlists-container .playlist-details span,
 .trending-songs-container .song-details > div > a {
-  width: fit-content;
+  width: max-content;
   font-size: 0.85em;
   color: var(--color-text-gray);
 }
@@ -286,7 +303,16 @@ main h2 {
   line-height: 0;
 }
 
-.top-artists-container li a {
+.top-radio-container ul li a {
+  gap: 1em;
+}
+
+.top-radio-container ul li {
+  max-width: 10em;
+}
+
+.top-artists-container li a,
+.top-radio-container a {
   display: flex;
   gap: 0.6em;
   text-align: center;
