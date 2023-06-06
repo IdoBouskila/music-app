@@ -395,7 +395,7 @@ main {
 }
 
 .carousel-header-container .carousel-buttons button:hover {
-  color: var(--color-text-dark);
+  color: var(--color-text-gray);
 }
 
 .player {
