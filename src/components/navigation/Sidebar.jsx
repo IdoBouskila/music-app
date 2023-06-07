@@ -24,7 +24,7 @@ const Sidebar = () => {
                     </li>
 
                     <li>
-                        <NavLink slug='trending_songs'>
+                        <NavLink slug='top_tracks'>
                             <FiMusic />
                             <span>Songs</span>
                         </NavLink>
