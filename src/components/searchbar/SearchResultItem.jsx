@@ -12,7 +12,7 @@ const SearchResultItem = ({ type, result }) => {
             onClick={
                 type === 'track'
                     ? () => handleSongClick(0, [result])
-                    : () => router.push(`/${ type }/${ result.id }`)
+                    : () => router.push(`/${ type }/${ id }`)
             }
         >
             <img
