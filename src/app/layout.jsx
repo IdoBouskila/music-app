@@ -2,7 +2,7 @@ import { Rubik } from 'next/font/google';
 import { SongProvider } from '@/context/SongProvider';
 import './globals.css';
 import Sidebar from '@/components/navigation/Sidebar';
-import Player from '@/components/others/Player';
+import Player from '@/components/player/Player';
 import SearchBar from '@/components/searchbar/SearchBar';
 
 export const metadata = {

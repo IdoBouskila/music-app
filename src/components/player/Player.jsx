@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useSong } from '@/context/SongProvider';
 import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdVolumeUp } from 'react-icons/md';
 import useWavesurfer from '@/hooks/useWavesurfer';
-import VolumeSlider from '../VolumeSlider';
+import VolumeSlider from './VolumeSlider';
 
 const Player = () => {
     const waveContainerRef = useRef(null);

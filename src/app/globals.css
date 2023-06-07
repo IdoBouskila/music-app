@@ -254,7 +254,7 @@ main > .top-artists-container ul,
   overflow-y: auto;
 }
 
-.trending-songs-container ul li {
+.track-list-item {
   display: flex;
   padding: 0.7em 1.2em;
   gap: 1em;
@@ -263,23 +263,23 @@ main > .top-artists-container ul,
   transition: background .15s ease-out;
 }
 
-.trending-songs-container ul li:hover {
+.track-list-item:hover {
   background: #0e1a41;
 }
 
-.trending-songs-container ul li img {
+.track-list-item img {
   width: 3em;
   border-radius: 50%;
 }
 
-.trending-songs-container ul li .song-details {
+.track-list-item .song-details {
   display: flex;
   flex: 1;
   gap: 2em;
   align-items: center;
 }
 
-.trending-songs-container ul li .song-details > div {
+.track-list-item .song-details > div {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -288,17 +288,17 @@ main > .top-artists-container ul,
 
 .top-artists-container .artist-details,
 .top-playlists-container .playlist-details span,
-.trending-songs-container .song-details > div > a {
+.track-list-item .song-details > div > a {
   width: max-content;
   font-size: 0.85em;
   color: var(--color-text-gray);
 }
 
-.trending-songs-container ul li .song-details > div > a:hover {
+.track-list-item .song-details > div > a:hover {
   text-decoration: underline;
 }
 
-.trending-songs-container ul li .song-details .favorite {
+.track-list-item .song-details .favorite {
   color: var(--color-text-gray);
   line-height: 0;
 }
