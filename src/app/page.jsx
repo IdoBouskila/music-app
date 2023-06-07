@@ -1,4 +1,4 @@
-import TrendingSongs from "./trending_songs/page";
+import TrendingSongs from "./top_tracks/page";
 import TopArtists from "./top_artists/page";
 import Playlists from "@/components/others/Playlists";
 
