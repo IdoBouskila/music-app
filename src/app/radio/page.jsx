@@ -12,10 +12,8 @@ export default async function TopRadio() {
                     radioList.map(radio =>
                         <li key={ radio.id }>
                             <Link href={ `radio/${ radio.id }` }>
-                                    <div>
-                                        <span>{ radio.title }</span>
-                                        <img src={ radio.picture_medium } alt="" />
-                                    </div>
+                                <img src={ radio.picture_medium } alt="" />
+                                <strong>{ radio.title }</strong>
                             </Link>
                         </li>
                     )
