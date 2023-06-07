@@ -1,5 +1,5 @@
 import { fetchTopArtist } from "@/utils/fetchers";
-import ArtistListItem from "@/components/list-items/ArtistListItem";
+import LinkCardItem from "@/components/list-items/LinkCardItem";
 
 export default async function TopArtists({ isRoute = true }) {
     const artists = await fetchTopArtist(isRoute && { limit: 50 });
@@ -10,12 +10,19 @@ export default async function TopArtists({ isRoute = true }) {
 
             <ul>
                 {
-                    artists.map(artist =>
-                        <ArtistListItem
-                            key={ artist.id }
-                            artist={ artist }
-                        />
-                    )
+                    artists.map(artist => {
+                        const { id, name, picture_xl, nb_album, nb_fan } = artist;
+
+                        return (
+                            <LinkCardItem 
+                                key={ id }
+                                title={ name }
+                                imgSrc= { picture_xl }
+                                href={ `/artist/${ id }` }
+                                description={ `${ nb_fan } Fans | ${ nb_album } Albums` }
+                            />
+                        );
+                    })
                 }
             </ul>
         </div>

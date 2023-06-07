@@ -44,12 +44,12 @@ const ArtistPage = async ({ params: { id } }) => {
                             const { id, title, cover_xl, release_date } = album;
                             
                             return (
-                                <AlbumListItem
+                                <LinkCardItem
                                     key={ id }
-                                    id={ id }
                                     title={ title }
-                                    imgSrc={ cover_xl }
-                                    releaseDate={ release_date }
+                                    imgSrc= { cover_xl }
+                                    href={ `/album/${ id }` }
+                                    description={ ` Album | ${ release_date }` }
                                 />
                             )
                         })

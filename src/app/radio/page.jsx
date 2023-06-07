@@ -1,3 +1,4 @@
+import LinkCardItem from "@/components/list-items/LinkCardItem";
 import { fetchTopRadio } from "@/utils/fetchers";
 import Link from "next/link";
 
@@ -10,12 +11,12 @@ export default async function TopRadio() {
             <ul>
                 {
                     radioList.map(radio =>
-                        <li key={ radio.id }>
-                            <Link href={ `radio/${ radio.id }` }>
-                                <img src={ radio.picture_medium } alt="" />
-                                <strong>{ radio.title }</strong>
-                            </Link>
-                        </li>
+                        <LinkCardItem
+                            key={ radio.id }
+                            href={ `radio/${ radio.id }` }
+                            imgSrc={ radio.picture_xl }
+                            title={ radio.title }
+                        />
                     )
                 }
             </ul>
