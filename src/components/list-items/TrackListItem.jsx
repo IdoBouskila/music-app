@@ -8,7 +8,10 @@ const TrackListItem = ({ index, playlist, track: { title, duration, artist, albu
     const { handleSongClick } = useSong();
 
     return (
-        <li onClick={ () => handleSongClick(index, playlist) }>
+        <li
+            className='track-list-item'
+            onClick={ () => handleSongClick(index, playlist) }
+        >
                 <img src={ album.cover_xl } alt="" />
 
                 <div className='song-details'>

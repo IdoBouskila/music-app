@@ -461,7 +461,8 @@ main > .top-artists-container ul,
   flex-direction: column;
 }
 
-.player .song-title, .player .duration {
+.player .song-title, .player .duration,
+.track-list-item span {
   color: var(--color-text-light);
   font-size: 1em;
 }
