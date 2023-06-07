@@ -7,7 +7,7 @@ const Carousel = ({ children, header }) => {
     const { changeSlide } = useCarousel(carouselRef);
 
     return (
-        <div className='carousel-container'> 
+        <> 
             <div className='carousel-header-container'>
                 { header && <h2>{ header }</h2> }
 
@@ -17,12 +17,12 @@ const Carousel = ({ children, header }) => {
                 </div>
             </div>
 
-            <div className='inner-carousel'>
+            <div className='carousel'>
                 <ul ref={ carouselRef }>
                     { children }
                 </ul>
             </div>
-        </div>
+        </>
     );
 };
 

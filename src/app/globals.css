@@ -402,12 +402,12 @@ main > .top-artists-container ul,
   grid-area: player;
 }
 
-.carousel-container .inner-carousel  {
+.carousel  {
   overflow: hidden;
   mask-image: linear-gradient(90deg, rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0.4) 95%, rgba(0, 0, 0, 0.1) 100%);
 }
 
-.carousel-container .inner-carousel ul {
+.carousel ul {
   position: relative;
   transition: transform 0.2s ease-in-out;
 }
