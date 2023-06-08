@@ -281,8 +281,34 @@ main > .top-artists-container ul,
   gap: 0.2em;
 }
 
-.top-artists-container .artist-details,
-.top-playlists-container .playlist-details span,
+.card-container {
+  flex: 1 1 100%;
+  max-width: 15em;
+}
+
+.card-container a {
+  display: flex;
+  gap: 0.6em;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card-container a img {
+  width: 6.5em;
+  height: 6.5em;
+  border-radius: 50%;
+}
+
+.card-container strong {
+  max-width: 25ch;
+  width: max-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+small,
 .track-list-item .song-details > div > a {
   width: max-content;
   font-size: 0.85em;
@@ -298,58 +324,21 @@ main > .top-artists-container ul,
   line-height: 0;
 }
 
-.top-radio-container ul li a {
-  gap: 1em;
-}
-
-.top-radio-container ul li {
-  max-width: 10em;
-}
-
-.top-artists-container li a,
-.top-radio-container a {
-  display: flex;
-  gap: 0.6em;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
+.top-radio-container .card-container {
+  flex: 0;
 }
 
 .top-artists-container ul {
   display: flex;
-  gap: 0.5em;
+  gap: 2em;
 }
 
-.top-artists-container li a img,
-.top-radio-container li a img {
-  width: 6.5em;
-  height: 6.5em;
-  border-radius: 50%;
-}
-
-.top-artists-container .artist-container,
-.top-radio-container li a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2em;
-}
-
-.artist-details span {
-  padding: 0 0.5em;
-}
-
-.artist-details span:first-child {
-  border-right: 1px solid var(--color-text-gray);
-}
-
-.top-radio-container li a:hover,
-.top-artists-container li a:hover,
+.card-container:hover,
 .top-playlists-container ul li a:hover {
   opacity: 0.75;
 }
 
-.top-radio-container li a:hover,
-.top-artists-container li a:hover,
+.card-container:hover,
 .top-playlists-container ul li a:hover {
   transition: opacity .2s ease-in-out;
 }
