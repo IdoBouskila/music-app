@@ -404,6 +404,7 @@ main > .top-artists-container ul,
 
 .carousel ul {
   position: relative;
+  display: flex;
   transition: transform 0.2s ease-in-out;
 }
 
