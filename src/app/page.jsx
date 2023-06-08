@@ -1,12 +1,16 @@
-import TrendingSongs from "./top_tracks/page";
-import TopArtists from "./top_artists/page";
 import Playlists from "@/components/others/Playlists";
+import TrackListContainer from "@/components/others/TrackListContainer";
+import { fetchTopTracks } from "@/utils/fetchers";
 
-export default function Home() {
+export default async function Home() {
+  const tracks = await fetchTopTracks({ limit: 10 });
+
   return (
     <div className='home-container'>
-      <TrendingSongs isRoute={ false } />
-      <TopArtists isRoute={ false } />
+      <TrackListContainer
+        header='Trending right now'
+        tracks={ tracks }
+      />
       <Playlists />
     </div>
   )

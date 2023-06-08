@@ -1,25 +1,13 @@
 import { fetchTopTracks } from "@/utils/fetchers";
-import TrackListItem from "@/components/list-items/TrackListItem";
+import TrackListContainer from "@/components/others/TrackListContainer";
 
-export default async function TrendingSongsList({ isRoute = true }) {
-    const tracks = await fetchTopTracks(isRoute && { limit: 50 });
+export default async function TopTracks() {
+    const tracks = await fetchTopTracks({ limit: 50 });
 
     return (
-        <div className='trending-songs-container'>
-            <h2>Trending right now</h2>
-
-            <ul>
-                {
-                    tracks.map((track, index) =>
-                        <TrackListItem
-                            key={ track.id }
-                            index={ index }
-                            playlist={ tracks }
-                            track={ track }
-                        />
-                    )
-                }
-            </ul>
-        </div>
+        <TrackListContainer
+            header='Trending right Now'
+            tracks={ tracks }
+        />
     );
 }

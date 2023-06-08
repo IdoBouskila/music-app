@@ -219,7 +219,7 @@ main h2 {
   overflow: unset;
 }
 
-.home-container .trending-songs-container {
+.home-container .track-list-container {
   grid-area: top-tracks;
 }
 
@@ -232,21 +232,16 @@ main > .top-artists-container ul,
   height: 100%;
 }
 
-.top-artists-container ul li,
-.top-radio-container ul li {
-  flex: 1;
-  flex-basis: 100%;
-  max-width: 15em;
-}
-
 .top-artists-container,
-.trending-songs-container {
+.track-list-container {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   overflow: hidden;
   color: var(--color-text-light);
 }
 
-.trending-songs-container ul,
+.track-list-container ul,
 .top-artists-container {
   display: flex;
   flex-direction: column;
