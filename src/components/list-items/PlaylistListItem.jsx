@@ -9,7 +9,7 @@ const PlaylistListItem = ({ id, title, imgSrc, creation_date }) => {
 
                 <div className='playlist-details'>
                     <strong>{ title }</strong>
-                    <span>{ creation_date }</span>
+                    <small>{ creation_date }</small>
                 </div>
             </Link>
         </li>
