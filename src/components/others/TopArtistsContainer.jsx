@@ -1,8 +1,8 @@
-import { fetchTopArtist } from '@/utils/fetchers';
+import { fetchTopArtists } from '@/utils/fetchers';
 import LinkCardItem from '../list-items/LinkCardItem';
 
 const TopArtistsContainer = async ({ limit }) => {
-    const artists = await fetchTopArtist({ limit });
+    const artists = await fetchTopArtists({ limit });
 
     return (
         <div className='top-artists-container'>

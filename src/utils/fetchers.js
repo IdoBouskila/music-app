@@ -12,7 +12,7 @@ export async function fetchTopTracks({ limit = 10 } = {}) {
     return data;
 }
 
-export async function fetchTopArtist({ limit = 3 } = {}) {
+export async function fetchTopArtists({ limit = 3 } = {}) {
     const endpoint = `/chart/0/artists?limit=${ limit }`;
 
     const { data } = await fetchData(endpoint);
