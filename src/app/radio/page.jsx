@@ -1,6 +1,5 @@
 import LinkCardItem from "@/components/list-items/LinkCardItem";
 import { fetchTopRadio } from "@/utils/fetchers";
-import Link from "next/link";
 
 export default async function TopRadio() {
     const radioList = await fetchTopRadio();
