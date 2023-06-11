@@ -65,11 +65,16 @@ export async function fetchTopRadio() {
     return data;
 }
 
-export async function fetchRadioTracklist(id) {
-    const endpoint = `/radio/${ id }/tracks`;
-    const { data } = await fetchData(endpoint);
+export async function fetchRadio(id) {
+    const radioPromise = fetchData(`/radio/${ id }`);
+    const trackListPromise = fetchData(`/radio/${ id }/tracks`);
 
-    return data;
+    const [radio, tracks] = await Promise.all([radioPromise, trackListPromise]);
+    
+    return {
+        ...radio,
+        tracks: tracks.data
+    };
 }
 
 export async function fetchSearchData(query, { limit = 3 } = {}) {
