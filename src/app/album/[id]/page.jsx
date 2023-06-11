@@ -1,49 +1,20 @@
-import TrackListItem from "@/components/list-items/TrackListItem";
+import IntroContainer from "@/components/others/IntroContainer";
+import TrackListContainer from "@/components/others/TrackListContainer";
 import { fetchAlbum } from "@/utils/fetchers";
 
 const AlbumPage = async ({ params }) => {
-    const { title, artist, cover_xl, release_date, duration, tracks: { data: tracks } } = await fetchAlbum(params.id);
-    
+    const { title, cover_xl, release_date, tracks } = await fetchAlbum(params.id);
+
     return (
-        <div>
-            <div>
-                <img src={ cover_xl } alt="" />
+        <div className='page-container'>
+            <IntroContainer
+                title={ title }
+                description={ `Album | ${ release_date }` }
+                imgSrc={ cover_xl }
+                playlist={ tracks.data }
+            />
 
-                <div>
-                    <h1>{ title }</h1>
-
-                    <div>
-                        <span>Album</span>
-                        <span>{ artist.name }</span>
-                        <span>{ release_date }</span>
-                    </div>
-
-                    <div>
-                        <span>{ tracks.length }</span>
-                        <span>{ duration }</span>
-                    </div>
-
-                    <div>
-                        <button>Play</button>
-                        <button>Add to favorite</button>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <ul>
-                    {
-                        tracks.map((track, index) =>
-                            <TrackListItem
-                                key={ track.id }
-                                index={ index }
-                                track={ track }
-                                playlist={ tracks }
-                            />
-                        )
-                    }
-                </ul>
-            </div>
+            <TrackListContainer tracks={ tracks.data }/>
         </div>
     );
 }
