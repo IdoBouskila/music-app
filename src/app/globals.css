@@ -22,6 +22,7 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+  font-family: inherit;
 }
 
 strong {
@@ -334,11 +335,13 @@ small,
 }
 
 .card-container:hover,
+.intro-container .intro-buttons button:hover,
 .top-playlists-container ul li a:hover {
   opacity: 0.75;
 }
 
 .card-container:hover,
+.intro-container .intro-buttons button,
 .top-playlists-container ul li a:hover {
   transition: opacity .2s ease-in-out;
 }
@@ -552,4 +555,57 @@ small,
   width: 100%;
   top: 50%;
   z-index: -2;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.intro-container img {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+}
+
+.intro-container .intro-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.intro-container .intro-details strong {
+  display: block;
+  font-size: 1.2em;
+}
+
+.intro-container .intro-details small {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.intro-container .intro-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.intro-buttons button {
+  display: flex;
+  height: 100%;
+  gap: 0.5ch;
+  border-radius: 2em;
+  border: 1px solid currentColor;
+  color: var(--color-text-light);
+}
+
+.intro-buttons .play-button {
+  border: 0;
+  background: rgb(205, 25, 179);
+  padding: 0.8em 1.4em;
+}
+
+.intro-buttons .favorite {
+  aspect-ratio: 1;
+  padding: 0.75em;
 }
