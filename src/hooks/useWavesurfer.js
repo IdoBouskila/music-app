@@ -26,8 +26,10 @@ const useWavesurfer = (waveContainerRef, audio) => {
             height: waveContainerRef.current.clientHeight,
         });
 
-        waveSurferRef.current.on('ready', () => setIsPlaying(true));
+        waveSurferRef.current.on('play', () => setIsPlaying(true));
+        waveSurferRef.current.on('pause', () => setIsPlaying(false));
         waveSurferRef.current.on('finish', () => handleNextSong());
+        
         waveSurferRef.current.setVolume(audioVolume);
         
         return () => {
@@ -36,18 +38,9 @@ const useWavesurfer = (waveContainerRef, audio) => {
     }, [audio]);
 
     waveSurferRef?.current?.setVolume(audioVolume);
-    
-    const handlePlayPause = () => {
-        if(! audio) {
-            return;
-        }
-        
-        setIsPlaying((prev) => ! prev);
-        waveSurferRef.current.playPause();
-    }
 
     return {
-        handlePlayPause,
+        handlePlayPause: () => waveSurferRef?.current?.playPause(),
         setAudioVolume,
         isPlaying,
     }
