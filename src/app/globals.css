@@ -610,9 +610,25 @@ small,
   padding: 0.75em;
 }
 
-.radio-container {
+.page-container {
   display: flex;
   flex-direction: column;
   gap: 2em;
   height: 100%;
+}
+
+.artist-page h2 {
+  font-size: 1.2em;
+}
+
+.artist-page .carousel ul {
+  gap: 2em;
+}
+
+.artist-page .carousel ul li {
+  min-width: 10em;
+  gap: 2em;
+}
+.artist-page .carousel ul li strong {
+  width: 100%;
 }

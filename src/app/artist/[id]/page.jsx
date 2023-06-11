@@ -1,60 +1,45 @@
-import AlbumListItem from "@/components/list-items/AlbumListItem";
-import TrackListItem from "@/components/list-items/TrackListItem";
+import LinkCardItem from "@/components/list-items/LinkCardItem";
+import Carousel from "@/components/others/Carousel";
+import IntroContainer from "@/components/others/IntroContainer";
+import TrackListContainer from "@/components/others/TrackListContainer";
 import { fetchArtist, fetchArtistAlbums, fetchArtistTopTracks } from "@/utils/fetchers";
 
 const ArtistPage = async ({ params: { id } }) => {
-    const artist = await fetchArtist(id);
-    const topTracks = await fetchArtistTopTracks(id);
-    const artistAlbums = await fetchArtistAlbums(id, { limit: 5 });
+    const artistPromise = fetchArtist(id);
+    const topTracksPromise = fetchArtistTopTracks(id);
+    const artistAlbumsPromise = fetchArtistAlbums(id, { limit: 20 });
+
+    const [artist, topTracks, artistAlbums] = await Promise.all([artistPromise, topTracksPromise, artistAlbumsPromise]);
 
     return (
-        <div>
-            <div>
-                <span>{ artist.name }</span>
-                
-                <div>
-                    <button>Shuffle</button>
-                    <button>{ artist.nb_fans } fans | Add to Favorites</button>
-                </div>
-            </div>
+        <div className='artist-page page-container'>
+            <IntroContainer
+                title={ artist.name }
+                imgSrc={ artist.picture_xl }
+                description={ `${ artist.nb_fan } Fans` }
+                playlist={ topTracks }
+            />
 
-            <div>
-                <span>Top Songs</span>
+            <TrackListContainer header='Top Songs' tracks={ topTracks } />
 
-                <ul>
-                    {
-                        topTracks.map((track, index) =>
-                            <TrackListItem
-                                key={ track.id }
-                                index={ index }
-                                playlist={ topTracks }
-                                track={ track }
+            <div className='albums-container'>
+                <Carousel header='Albums'>
+                {
+                    artistAlbums.map((album) => {
+                        const { id, title, cover_xl, release_date } = album;
+                        
+                        return (
+                            <LinkCardItem
+                                key={ id }
+                                title={ title }
+                                imgSrc= { cover_xl }
+                                href={ `/album/${ id }` }
+                                description={ `Album | ${ release_date }` }
                             />
                         )
-                    }
-                </ul>
-            </div>
-
-            <div>
-                <span>Albums</span>
-
-                <ul>
-                    {
-                        artistAlbums.map((album) => {
-                            const { id, title, cover_xl, release_date } = album;
-                            
-                            return (
-                                <LinkCardItem
-                                    key={ id }
-                                    title={ title }
-                                    imgSrc= { cover_xl }
-                                    href={ `/album/${ id }` }
-                                    description={ ` Album | ${ release_date }` }
-                                />
-                            )
-                        })
-                    }
-                </ul>
+                    })
+                }
+                </Carousel>
             </div>
         </div>
     );
