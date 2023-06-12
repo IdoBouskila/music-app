@@ -375,7 +375,7 @@ small,
 }
 
 .top-playlists-container ul li {
-  flex: 1;
+  min-width: 14em;
 }
 
 .top-playlists-container ul li a {
