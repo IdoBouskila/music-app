@@ -2,7 +2,7 @@ import LinkCardItem from "@/components/list-items/LinkCardItem";
 import Carousel from "@/components/others/Carousel";
 import IntroContainer from "@/components/others/IntroContainer";
 import TrackListContainer from "@/components/others/TrackListContainer";
-import { getYearFromDate } from "@/utils/app-helper";
+import { compactNumber, getYearFromDate } from "@/utils/app-helper";
 import { fetchArtist, fetchArtistAlbums, fetchArtistTopTracks } from "@/utils/fetchers";
 
 const ArtistPage = async ({ params: { id } }) => {
@@ -11,13 +11,14 @@ const ArtistPage = async ({ params: { id } }) => {
     const artistAlbumsPromise = fetchArtistAlbums(id, { limit: 20 });
 
     const [artist, topTracks, artistAlbums] = await Promise.all([artistPromise, topTracksPromise, artistAlbumsPromise]);
+    const formattedFanNumber = compactNumber(artist.nb_fan);
 
     return (
         <div className='artist-page page-container'>
             <IntroContainer
                 title={ artist.name }
                 imgSrc={ artist.picture_xl }
-                description={ `${ artist.nb_fan } Fans` }
+                description={ `${ formattedFanNumber } Fans` }
                 playlist={ topTracks }
             />
 

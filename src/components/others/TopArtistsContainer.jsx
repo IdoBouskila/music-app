@@ -1,5 +1,6 @@
 import { fetchTopArtists } from '@/utils/fetchers';
 import LinkCardItem from '../list-items/LinkCardItem';
+import { compactNumber } from '@/utils/app-helper';
 
 const TopArtistsContainer = async ({ limit }) => {
     const artists = await fetchTopArtists({ limit });
@@ -12,6 +13,7 @@ const TopArtistsContainer = async ({ limit }) => {
                 {
                     artists.map(artist => {
                         const { id, name, picture_xl, nb_album, nb_fan } = artist;
+                        const formattedFanNumber = compactNumber(nb_fan);
 
                         return (
                             <LinkCardItem
@@ -19,7 +21,7 @@ const TopArtistsContainer = async ({ limit }) => {
                                 title={ name }
                                 imgSrc= { picture_xl }
                                 href={ `/artist/${ id }` }
-                                description={ `${ nb_fan } Fans | ${ nb_album } Albums` }
+                                description={ `${ formattedFanNumber } Fans | ${ nb_album } Albums` }
                             />
                         );
                     })
