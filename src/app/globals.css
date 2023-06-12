@@ -334,12 +334,14 @@ small,
   gap: 2em;
 }
 
+.player button:hover,
 .card-container:hover,
 .intro-container .intro-buttons button:hover,
 .top-playlists-container ul li a:hover {
   opacity: 0.75;
 }
 
+.player button:hover,
 .card-container:hover,
 .intro-container .intro-buttons button,
 .top-playlists-container ul li a:hover {
