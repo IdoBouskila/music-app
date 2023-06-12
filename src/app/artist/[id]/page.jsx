@@ -2,6 +2,7 @@ import LinkCardItem from "@/components/list-items/LinkCardItem";
 import Carousel from "@/components/others/Carousel";
 import IntroContainer from "@/components/others/IntroContainer";
 import TrackListContainer from "@/components/others/TrackListContainer";
+import { getYearFromDate } from "@/utils/app-helper";
 import { fetchArtist, fetchArtistAlbums, fetchArtistTopTracks } from "@/utils/fetchers";
 
 const ArtistPage = async ({ params: { id } }) => {
@@ -27,14 +28,15 @@ const ArtistPage = async ({ params: { id } }) => {
                 {
                     artistAlbums.map((album) => {
                         const { id, title, cover_xl, release_date } = album;
-                        
+                        const releaseYear = getYearFromDate(release_date);
+
                         return (
                             <LinkCardItem
                                 key={ id }
                                 title={ title }
                                 imgSrc= { cover_xl }
                                 href={ `/album/${ id }` }
-                                description={ `Album | ${ release_date }` }
+                                description={ `Album | ${ releaseYear }` }
                             />
                         )
                     })

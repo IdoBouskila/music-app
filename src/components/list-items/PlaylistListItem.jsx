@@ -1,6 +1,8 @@
+import { getYearFromDate } from '@/utils/app-helper';
 import Link from 'next/link';
 
 const PlaylistListItem = ({ id, title, imgSrc, creation_date }) => {
+    const createdYear = getYearFromDate(creation_date);
 
     return (
         <li className='playlist-item'>
@@ -9,7 +11,7 @@ const PlaylistListItem = ({ id, title, imgSrc, creation_date }) => {
 
                 <div className='playlist-details'>
                     <strong>{ title }</strong>
-                    <small>{ creation_date }</small>
+                    <small>{ createdYear }</small>
                 </div>
             </Link>
         </li>
