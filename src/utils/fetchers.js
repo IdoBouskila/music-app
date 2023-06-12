@@ -58,6 +58,13 @@ export async function fetchAlbum(id) {
     return data;
 }
 
+export async function fetchPlaylist(id) {
+    const endpoint = `/playlist/${ id }`;
+    const data = await fetchData(endpoint);
+    
+    return data;
+}
+
 export async function fetchTopRadio() {
     const endpoint = '/radio/top';
     const { data } = await fetchData(endpoint);
