@@ -156,8 +156,12 @@ strong {
 .search-results-container {
   position: absolute;
   top: 100%;
-  width: 100%;
-  word-break: break-word;
+  width: 30%;
+  padding: 1em;
+  border-radius: 1em;
+  backdrop-filter: blur(20px);
+  background: rgba(6, 14, 75, 0.2);
+  box-shadow: rgba(6, 14, 75, 0.5) 0px 7px 29px 0px;
 }
 
 .search-results-container div:not(:last-child) {
@@ -166,6 +170,13 @@ strong {
 
 .search-results-container div {
   padding: 1em 0;
+}
+
+.search-results-container div span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .search-results-container div strong {
