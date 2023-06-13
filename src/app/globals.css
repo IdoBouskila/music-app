@@ -153,8 +153,13 @@ strong {
   color: var(--color-text-gray);
 }
 
+.searchbar input:focus + .search-results-container, .search-results-container:active {
+  display: block;
+}
+
 .search-results-container {
   position: absolute;
+  display: none;
   top: 100%;
   width: 30%;
   padding: 1em;
