@@ -4,12 +4,14 @@ import { useSong } from '@/context/SongProvider';
 import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdVolumeUp } from 'react-icons/md';
 import useWavesurfer from '@/hooks/useWavesurfer';
 import VolumeSlider from './VolumeSlider';
+import { formatDuration } from '@/utils/app-helper';
 
 const Player = () => {
     const waveContainerRef = useRef(null);
     const { handleNextSong, handlePreviousSong, currentSong } = useSong();
     const { album, title, artist, preview: audioSrc, duration } = currentSong;
     const { handlePlayPause, isPlaying, setAudioVolume } = useWavesurfer(waveContainerRef, audioSrc);
+    const formattedDuration = formatDuration(duration);
 
     return (
         <>
@@ -44,7 +46,7 @@ const Player = () => {
 
                 <div className='wave-container' ref={ waveContainerRef }></div>
 
-                <span className='duration'>{ duration }</span>
+                <span className='duration'>{ formattedDuration }</span>
 
                 <div className='volume-slider-container'>
                     <button>

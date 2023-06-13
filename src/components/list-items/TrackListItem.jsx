@@ -3,9 +3,11 @@ import React from 'react';
 import { BsHeartFill } from 'react-icons/bs';
 import { useSong } from '@/context/SongProvider';
 import Link from 'next/link';
+import { formatDuration } from '@/utils/app-helper';
 
 const TrackListItem = ({ index, playlist, track: { title, duration, artist, album } }) => {
     const { handleSongClick } = useSong();
+    const formattedDuration = formatDuration(duration);
 
     return (
         <li
@@ -22,7 +24,7 @@ const TrackListItem = ({ index, playlist, track: { title, duration, artist, albu
                         </Link>
                     </div>
 
-                    <span>{ duration }</span>
+                    <span>{ formattedDuration }</span>
                     
                     <button className='favorite'>
                         <BsHeartFill />
