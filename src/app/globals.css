@@ -405,10 +405,6 @@ small,
   display: flex;
 }
 
-.player {
-  grid-area: player;
-}
-
 .carousel  {
   overflow: hidden;
   mask-image: linear-gradient(90deg, rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0.4) 95%, rgba(0, 0, 0, 0.1) 100%);
@@ -450,6 +446,7 @@ small,
   margin: auto 0;
   padding: 0 2.8em;
   align-items: center;
+  grid-area: player;
 }
 
 .player.disable img {
@@ -649,6 +646,7 @@ small,
 .artist-page .carousel ul li {
   min-width: 10em;
 }
+
 .artist-page .carousel ul li strong {
   width: 100%;
 }
