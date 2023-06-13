@@ -454,7 +454,7 @@ small,
 .player .song-title, .player .duration,
 .track-list-item span {
   color: var(--color-text-light);
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .player .artist-name {
