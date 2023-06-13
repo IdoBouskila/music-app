@@ -485,7 +485,7 @@ small,
 .player .control-buttons {
   display: flex;
   gap: 0.25em;
-  margin-left: 3.5em;
+  margin-left: 1.5em;
   justify-content: center;
 }
 
