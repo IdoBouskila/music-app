@@ -119,8 +119,10 @@ strong {
   display: grid;
   grid-area: main;
   padding: var(--vertical-padding) var(--horizontal-padding);
-  grid-template: 'searchbar . .' 'main-container main-container main-container';
-  grid-template-rows: var(--searchbar-height) 1fr;
+  grid-template:  'searchbar . .'
+                  'main-container main-container main-container';
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: var(--searchbar-height) minmax(0, 1fr);
   border-bottom-right-radius: 2em;
   background: linear-gradient(110deg, rgb(6, 14, 75) 0%, rgb(7, 19, 89) 40%, rgba(7, 23, 105, 0.35) 70%, rgba(0, 0, 255, 0.8) 100%),
   url('/images/portrait_disco_woman.png');
