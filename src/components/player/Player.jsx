@@ -19,7 +19,7 @@ const Player = () => {
                 <img src={ album?.cover_xl } alt='' />
 
                 <div className='song-details'>
-                    <span className='song-title'>{ title }</span>
+                    <span className='song-title overflowing-text'>{ title }</span>
                     <span className='artist-name'>{ artist?.name }</span>
                 </div>
 

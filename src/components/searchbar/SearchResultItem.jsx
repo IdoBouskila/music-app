@@ -19,7 +19,7 @@ const SearchResultItem = ({ type, result }) => {
                 src={ picture_xl || `https://e-cdns-images.dzcdn.net/images/artist/${ md5_image }/1000x1000-000000-80-0-0.jpg` }
                 alt={ title || name }
             />
-            <span>{ name || title }</span>
+            <span className='overflowing-text'>{ name || title }</span>
         </li>
     );
 };

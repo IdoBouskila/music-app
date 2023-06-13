@@ -177,7 +177,7 @@ strong {
   padding: 1em 0;
 }
 
-.search-results-container div span {
+.overflowing-text {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 2;
@@ -467,6 +467,7 @@ small,
   display: flex;
   gap: 3px;
   flex-direction: column;
+  width: 6.5%;
 }
 
 .player .song-title, .player .duration,

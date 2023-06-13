@@ -18,7 +18,7 @@ const TrackListItem = ({ index, playlist, track: { title, duration, artist, albu
 
                 <div className='song-details'>
                     <div>
-                        <strong>{ title }</strong>
+                        <strong className='overflowing-text'>{ title }</strong>
                         <Link className='artist-name' href={ `/artist/${ artist.id }` }>
                             { artist.name }
                         </Link>
