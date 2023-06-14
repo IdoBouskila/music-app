@@ -1,9 +1,10 @@
 'use client';
-import { useSong } from "@/context/SongProvider";
+import { playSong } from '@/redux/features/songsSlice';
 import { FaPlay, FaHeart } from 'react-icons/fa';
+import { useDispatch } from "react-redux";
 
 const IntroContainer = ({ imgSrc, title, description, playlist }) => {
-    const { handleSongClick } = useSong();
+    const dispatch = useDispatch();
 
     return (
         <div className='intro-container'>
@@ -14,7 +15,10 @@ const IntroContainer = ({ imgSrc, title, description, playlist }) => {
                 <small>{ description }</small>
                 
                 <div className='intro-buttons'>
-                    <button className='play-button' onClick={ () => handleSongClick(0, playlist) }>
+                    <button
+                        className='play-button'
+                        onClick={ () => dispatch(playSong({ playlist, index: 0 })) }
+                    >
                         <FaPlay />
 
                         <span>Play</span>

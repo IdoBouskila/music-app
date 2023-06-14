@@ -1,9 +1,9 @@
 import { Rubik } from 'next/font/google';
-import { SongProvider } from '@/context/SongProvider';
 import './globals.css';
 import Sidebar from '@/components/navigation/Sidebar';
 import Player from '@/components/player/Player';
 import SearchBar from '@/components/searchbar/SearchBar';
+import ReduxProvider from '@/redux/ReduxProvider';
 
 export const metadata = {
   title: 'Music platform 🎶',
@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en' className={ rubik.className }>
       <body>
-        <SongProvider>
+        <ReduxProvider>
           <div className='wrapper'>
             <Sidebar />
             
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
 
             <Player />
           </div>
-        </SongProvider>
+        </ReduxProvider>
       </body>
     </html>
   )

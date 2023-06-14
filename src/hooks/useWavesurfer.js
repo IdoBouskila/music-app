@@ -1,5 +1,6 @@
-import { useSong } from '@/context/SongProvider';
+import { playNextSong } from '@/redux/features/songsSlice';
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import WaveSurfer from 'wavesurfer.js';
 
 const options = {
@@ -15,7 +16,7 @@ const options = {
 
 const useWavesurfer = (waveContainerRef, audio) => {
     const waveSurferRef = useRef(null);
-    const { handleNextSong } = useSong();
+    const dispatch = useDispatch();
     const [isPlaying, setIsPlaying] = useState(false);
     const [audioVolume, setAudioVolume] = useState(1);
 
@@ -28,7 +29,7 @@ const useWavesurfer = (waveContainerRef, audio) => {
 
         waveSurferRef.current.on('play', () => setIsPlaying(true));
         waveSurferRef.current.on('pause', () => setIsPlaying(false));
-        waveSurferRef.current.on('finish', () => handleNextSong());
+        waveSurferRef.current.on('finish', () => dispatch(playNextSong()));
         
         waveSurferRef.current.setVolume(audioVolume);
         

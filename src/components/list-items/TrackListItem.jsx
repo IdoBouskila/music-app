@@ -1,18 +1,19 @@
 'use client';
 import React from 'react';
 import { BsHeartFill } from 'react-icons/bs';
-import { useSong } from '@/context/SongProvider';
 import Link from 'next/link';
 import { formatDuration } from '@/utils/app-helper';
+import { useDispatch } from 'react-redux';
+import { playSong } from '@/redux/features/songsSlice';
 
 const TrackListItem = ({ index, playlist, track: { title, duration, artist, album } }) => {
-    const { handleSongClick } = useSong();
+    const dispatch = useDispatch();
     const formattedDuration = formatDuration(duration);
 
     return (
         <li
             className='track-list-item'
-            onClick={ () => handleSongClick(index, playlist) }
+            onClick={ () => dispatch(playSong({index, playlist})) }
         >
                 <img src={ album.cover_xl } alt="" />
 

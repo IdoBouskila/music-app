@@ -1,15 +1,16 @@
 'use client';
 import { useRef } from 'react';
-import { useSong } from '@/context/SongProvider';
-import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdVolumeUp } from 'react-icons/md';
 import useWavesurfer from '@/hooks/useWavesurfer';
 import VolumeSlider from './VolumeSlider';
 import { formatDuration } from '@/utils/app-helper';
+import { useDispatch, useSelector } from 'react-redux';
+import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdVolumeUp } from 'react-icons/md';
+import { playNextSong, playPreviousSong, selectCurrentSong } from '@/redux/features/songsSlice';
 
 const Player = () => {
+    const dispatch = useDispatch();
     const waveContainerRef = useRef(null);
-    const { handleNextSong, handlePreviousSong, currentSong } = useSong();
-    const { album, title, artist, preview: audioSrc, duration } = currentSong;
+    const { album, title, artist, preview: audioSrc, duration } = useSelector(selectCurrentSong);
     const { handlePlayPause, isPlaying, setAudioVolume } = useWavesurfer(waveContainerRef, audioSrc);
     const formattedDuration = formatDuration(duration);
 
@@ -24,7 +25,7 @@ const Player = () => {
                 </div>
 
                 <div className='control-buttons'>
-                    <button onClick={ handlePreviousSong }>
+                    <button onClick={ () => dispatch(playPreviousSong()) }>
                         <MdSkipPrevious />
                     </button>
 
@@ -39,7 +40,7 @@ const Player = () => {
                         }
                     </button>
 
-                    <button onClick={ handleNextSong }>
+                    <button onClick={ () => dispatch(playNextSong()) }>
                         <MdSkipNext />
                     </button>
                 </div>

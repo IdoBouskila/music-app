@@ -1,17 +1,18 @@
 'use client';
-import { useSong } from '@/context/SongProvider';
+import { playSong } from '@/redux/features/songsSlice';
 import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
 
 const SearchResultItem = ({ type, result }) => {
     const router = useRouter();
-    const { handleSongClick } = useSong();
+    const dispatch = useDispatch();
     const { id, name, title, picture_xl, md5_image } = result; 
     
     return (
         <li
             onClick={
                 type === 'track'
-                    ? () => handleSongClick(0, [result])
+                    ? () => dispatch(playSong({ playlist: [result], index: 0}))
                     : () => router.push(`/${ type }/${ id }`)
             }
         >
