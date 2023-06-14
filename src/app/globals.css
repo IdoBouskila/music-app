@@ -274,6 +274,7 @@ main > .top-artists-container ul,
   gap: 1em;
   align-items: center;
   border-radius: 10em;
+  cursor: pointer;
   transition: background .15s ease-out;
 }
 
