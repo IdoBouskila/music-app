@@ -7,37 +7,42 @@ const SearchResults = ({ query }) => {
     const { data: resultsObj, error, isLoading } = useSWR(query, fetchProxySearchData);
 
     return (
-        <div className='search-results-container'>
-            { isLoading && <strong>Loading...</strong>}
+        <>
+        {
+            query &&
+            <div className='search-results-container'>
+                { isLoading && <strong>Loading...</strong>}
 
-            { error && <strong>Error</strong>}
+                { error && <strong>Something went wrong...</strong>}
 
-            {
-                resultsObj && 
-                Object.keys(resultsObj).map(type => {
-                    return (
-                        <div key={ type }>
-                            <strong>{ type + 's' }</strong>
+                {
+                    resultsObj && 
+                    Object.keys(resultsObj).map(type => {
+                        return (
+                            <div key={ type }>
+                                <strong>{ type + 's' }</strong>
 
-                            <ul>
-                                {
-                                    ! resultsObj[type].length ?
-                                        <span className='not-found-error'>Item not found. Please try a different search term.</span>
-                                    :
-                                        resultsObj[type].map(result =>
-                                            <SearchResultItem
-                                                key={ result.id }
-                                                type={ type }
-                                                result={ result }
-                                            />
-                                        )
-                                }
-                            </ul>
-                        </div>
-                    )
-                })
-            }
-        </div>
+                                <ul>
+                                    {
+                                        ! resultsObj[type].length ?
+                                            <span className='not-found-error'>Item not found. Please try a different search term.</span>
+                                        :
+                                            resultsObj[type].map(result =>
+                                                <SearchResultItem
+                                                    key={ result.id }
+                                                    type={ type }
+                                                    result={ result }
+                                                />
+                                            )
+                                    }
+                                </ul>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        }
+        </>
     );
 };
 
