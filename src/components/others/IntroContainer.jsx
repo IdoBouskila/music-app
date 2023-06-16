@@ -1,7 +1,6 @@
 'use client';
 import { playSong } from '@/redux/features/songsSlice';
-import { FaPlay, FaHeart } from 'react-icons/fa';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
 const IntroContainer = ({ imgSrc, title, description, playlist }) => {
     const dispatch = useDispatch();
