@@ -1,5 +1,4 @@
 'use client';
-import { Suspense } from 'react';
 import { SWRConfig } from 'swr';
 import { fetchProxyMultipleEntities } from '@/utils/fetchers';
 import TabsContainer from '@/components/favorites-page/TabsContainer';
@@ -25,9 +24,7 @@ const FavoritesPage = () => {
                     suspense: true
                 }}
             >
-                <Suspense fallback={ <h2>Loading...</h2> }>
-                    <TabsContainer />
-                </Suspense>
+                <TabsContainer />
             </SWRConfig>
         </Tabs.Root>
     );

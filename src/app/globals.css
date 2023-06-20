@@ -713,6 +713,77 @@ small,
   box-shadow: 0px 6px 18px rgba(205, 25, 179, 0.3);
 }
 
+.loader {
+  --primary-color: var(--color-pink);
+  --secondry-color: var(--color-text-light);
+  display: flex;
+  gap: 3px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader::before,
+.loader::after,
+.loader * {
+  background: var(--primary-color);
+  display:inline-block;
+  position: relative;
+  height: 1em;
+  width: 2px;
+  animation: stretch 2s infinite;
+  animation-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.97);
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  position: relative;
+  display: inline-block;
+  animation-delay: -0.9s;
+}
+
+.loader::before {
+  animation-delay: -1s;
+}
+
+.loader div:nth-child(1) {
+  animation-delay: -0.9s;;
+}
+
+.loader div:nth-child(2) {
+  animation-delay: -0.8s;
+}
+
+.loader div:nth-child(3) {
+  animation-delay: -0.7s;
+}
+
+.loader::after {
+  animation-delay: -0.6s;
+}
+
+@keyframes stretch {
+  0%, 20%, 49% { 
+    transform: scaleY(0.4);
+    background-color: var(--primary-color);
+  }
+  
+  10% { 
+    transform: scaleY(1.0);
+  }
+  
+  50%, 70%, 100% { 
+    transform: scaleY(0.4);
+    background-color: var(--secondry-color);
+  }
+  
+  60% { 
+    transform: scaleY(1.0);
+    background-color: var(--secondry-color);
+  }
+}
+
 @media (max-width: 1560px) {
   body {
     font-size: 12px;
