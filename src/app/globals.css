@@ -2,6 +2,7 @@
   --color-text-light: #fafafe;
   --color-text-dark: #2d2e37;
   --color-text-gray: rgba(255, 255, 255, 0.5);
+  --color-pink: rgb(205, 25, 179);
 }
 
 * {
@@ -103,14 +104,14 @@ strong {
 
 .sidebar a.active > svg,
 .sidebar a:hover:not(.app-logo) > svg {
-  color: var(--color-primary-sidebar);
+  color: var(--color-pink);
 }
 
 .sidebar h2 {
   margin-bottom: 1.4em;
   font-size: 1em;
   font-weight: 500;
-  color: var(--color-primary-sidebar);
+  color: var(--color-pink);
 }
 
 .main-container {
@@ -620,7 +621,7 @@ small,
 
 .intro-buttons .play-button {
   border: 0;
-  background: rgb(205, 25, 179);
+  background: var(--color-pink);
   padding: 0.8em 1.4em;
 }
 
