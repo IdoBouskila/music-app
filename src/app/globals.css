@@ -706,11 +706,6 @@ small,
     overflow-x: auto;
   }
 
-  main > .top-artists-container ul,
-  .page-container ul:not(.carousel ul, .track-list-container ul) {
-    
-  }
-
   .card-container {
     aspect-ratio: unset;
   }
