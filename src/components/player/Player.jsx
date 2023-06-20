@@ -31,7 +31,7 @@ const Player = () => {
 
                     <button
                         className='play-pause-btn'
-                        onClick={ handlePlayPause }
+                        onClick={ audioSrc && handlePlayPause }
                     >
                         { 
                             isPlaying ? 
