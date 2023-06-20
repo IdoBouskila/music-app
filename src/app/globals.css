@@ -718,6 +718,10 @@ small,
     font-size: 10px;
   }
 
+  .main-container {
+    background-size: auto auto, 150% 100%;
+  }
+
   .app-logo {
     justify-content: center;
   }
