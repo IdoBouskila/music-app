@@ -331,7 +331,6 @@ main > .top-artists-container ul,
 
 small,
 .track-list-item .song-details > div > a {
-  width: max-content;
   font-size: 0.85em;
   color: var(--color-text-gray);
 }
