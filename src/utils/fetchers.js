@@ -2,7 +2,15 @@ const base = 'https://api.deezer.com';
 
 async function fetchData(endpoint) {
     const response = await fetch(base + endpoint);
-    return await response.json();
+    const data = await response.json();
+    return data;
+}
+
+export async function fetchTrack(id) {
+    const endpoint = `/track/${ id }`;
+    const data = await fetchData(endpoint);
+
+    return data;
 }
 
 export async function fetchTopTracks({ limit = 10 } = {}) {
@@ -101,4 +109,14 @@ export async function fetchSearchData(query, { limit = 3 } = {}) {
 export async function fetchProxySearchData(query) {
     const response = await fetch(`/api/search?q=${ query }`);
     return await response.json();
+}
+
+export async function fetchProxyMultipleEntities({ entitiesId, endpoint}) {
+    const promises = entitiesId.map(async (id) => {
+        const res = await fetch(endpoint + '/' + id);
+        
+        return res.json();
+    });
+    
+    return await Promise.all(promises);
 }

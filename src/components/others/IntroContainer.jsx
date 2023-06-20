@@ -1,8 +1,10 @@
 'use client';
 import { playSong } from '@/redux/features/songsSlice';
+import { FaPlay } from 'react-icons/fa';
+import FavoriteButton from './FavoriteButton';
 import { useDispatch } from 'react-redux';
 
-const IntroContainer = ({ imgSrc, title, description, playlist }) => {
+const IntroContainer = ({ id, imgSrc, title, description, playlist, type }) => {
     const dispatch = useDispatch();
 
     return (
@@ -23,7 +25,7 @@ const IntroContainer = ({ imgSrc, title, description, playlist }) => {
                         <span>Play</span>
                     </button>
 
-                    <button className='favorite'><FaHeart /></button>
+                    <FavoriteButton type={ type } id={ id } />
                 </div>
             </div>
         </div>

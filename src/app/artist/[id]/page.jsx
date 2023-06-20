@@ -16,6 +16,8 @@ const ArtistPage = async ({ params: { id } }) => {
     return (
         <div className='artist-page page-container'>
             <IntroContainer
+                id={ id }
+                type={ artist.type }
                 title={ artist.name }
                 imgSrc={ artist.picture_xl }
                 description={ `${ formattedFanNumber } Fans` }

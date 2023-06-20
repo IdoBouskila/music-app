@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
-import { BsHeartFill } from 'react-icons/bs';
 import Link from 'next/link';
 import { formatDuration } from '@/utils/app-helper';
 import { useDispatch } from 'react-redux';
 import { playSong } from '@/redux/features/songsSlice';
+import FavoriteButton from '../others/FavoriteButton';
 
-const TrackListItem = ({ index, playlist, track: { title, duration, artist, album } }) => {
+const TrackListItem = ({ index, playlist, track: { id, title, duration, artist, album, type } }) => {
     const dispatch = useDispatch();
     const formattedDuration = formatDuration(duration);
 
@@ -27,9 +27,7 @@ const TrackListItem = ({ index, playlist, track: { title, duration, artist, albu
 
                     <span>{ formattedDuration }</span>
                     
-                    <button className='favorite'>
-                        <BsHeartFill />
-                    </button>
+                    <FavoriteButton id={ id } type={ type } />
                 </div>
 
         </li>

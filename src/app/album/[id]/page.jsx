@@ -4,12 +4,14 @@ import { getYearFromDate } from "@/utils/app-helper";
 import { fetchAlbum } from "@/utils/fetchers";
 
 const AlbumPage = async ({ params }) => {
-    const { title, cover_xl, release_date, tracks } = await fetchAlbum(params.id);
+    const { title, cover_xl, release_date, tracks, type } = await fetchAlbum(params.id);
     const releaseYear = getYearFromDate(release_date);
 
     return (
         <div className='page-container'>
             <IntroContainer
+                id={ params.id }
+                type={ type }
                 title={ title }
                 description={ `Album • ${ releaseYear }` }
                 imgSrc={ cover_xl }
