@@ -20,7 +20,7 @@ const TrackListItem = ({ index, playlist, track: { id, title, duration, artist, 
                 <div className='song-details'>
                     <div>
                         <strong className='overflowing-text'>{ title }</strong>
-                        <Link onClick={ (e) => e.stopPropagation() } className='artist-name' href={ `/artist/${ artist.id }` }>
+                        <Link onClick={ (e) => e.stopPropagation() } className='artist-name overflowing-text' href={ `/artist/${ artist.id }` }>
                             { artist.name }
                         </Link>
                     </div>

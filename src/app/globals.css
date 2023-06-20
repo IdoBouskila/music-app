@@ -331,7 +331,6 @@ main > .top-artists-container ul,
 
 small,
 .track-list-item .song-details > div > a {
-  width: max-content;
   font-size: 0.85em;
   color: var(--color-text-gray);
 }
@@ -679,6 +678,34 @@ small,
   text-align: center;
 }
 
+.not-found-page {
+  display: flex;
+  gap: 2vh;
+  height: 100%;
+  font-size: 1.1em;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.not-found-page h2 {
+  margin: 0;
+}
+
+.gradient-text {
+  background: linear-gradient(160deg, var(--color-pink) 0%, #c76e66 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.not-found-page a {
+  color: var(--color-text-light);
+  padding: 1em 1em;
+  font-size: 0.8em;
+  border-radius: 5em;
+  background-color: rgb(205, 25, 179);
+  box-shadow: 0px 6px 18px rgba(205, 25, 179, 0.3);
+}
 
 @media (max-width: 1560px) {
   body {
