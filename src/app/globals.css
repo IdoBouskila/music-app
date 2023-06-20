@@ -609,6 +609,7 @@ small,
   display: flex;
   height: 100%;
   gap: 0.5ch;
+  font-size: 1em;
   border-radius: 2em;
   border: 1px solid currentColor;
   color: var(--color-text-light);
@@ -759,11 +760,7 @@ small,
   .artist-page .track-list-container {
     height: auto;
   }
-
-  .artist-page .intro-buttons button {
-    font-size: 1em;
-  }
-
+  
   .top-playlists-container {
     margin: 0;
   }
