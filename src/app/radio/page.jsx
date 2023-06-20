@@ -5,7 +5,7 @@ export default async function TopRadio() {
     const radioList = await fetchTopRadio();
 
     return (
-        <div className='top-radio-container'>
+        <div className='top-radio-container page-container'>
             <h2>Top Radios</h2>
             <ul>
                 {
