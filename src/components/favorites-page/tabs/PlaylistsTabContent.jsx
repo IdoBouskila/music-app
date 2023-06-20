@@ -8,14 +8,14 @@ const PlaylistsTabContent = ({ playlists }) => {
         <ul>
         {
             data.map(playlist => {
-                const { id, title, creation_date, picture_xl } = playlist;
+                const { id, title, creation_date, picture_medium } = playlist;
 
                 return (
                     <PlaylistListItem
                         id={ id }
                         key={ id }
                         title={ title }
-                        imgSrc={ picture_xl }
+                        imgSrc={ picture_medium }
                         creation_date={ creation_date }
                     />
                 );

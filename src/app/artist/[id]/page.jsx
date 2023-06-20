@@ -19,7 +19,7 @@ const ArtistPage = async ({ params: { id } }) => {
                 id={ id }
                 type={ artist.type }
                 title={ artist.name }
-                imgSrc={ artist.picture_xl }
+                imgSrc={ artist.picture_medium }
                 description={ `${ formattedFanNumber } Fans` }
                 playlist={ topTracks }
             />

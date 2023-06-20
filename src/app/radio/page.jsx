@@ -13,7 +13,7 @@ export default async function TopRadio() {
                         <LinkCardItem
                             key={ radio.id }
                             href={ `radio/${ radio.id }` }
-                            imgSrc={ radio.picture_xl }
+                            imgSrc={ radio.picture_medium }
                             title={ radio.title }
                         />
                     )

@@ -3,7 +3,7 @@ import TrackListContainer from "@/components/others/TrackListContainer";
 import { fetchPlaylist } from "@/utils/fetchers";
 
 const Playlists = async ({ params }) => {
-    const { type, title, description, picture_xl, tracks } = await fetchPlaylist(params.id);
+    const { type, title, description, picture_medium, tracks } = await fetchPlaylist(params.id);
 
     return (
         <div className='page-container'>
@@ -11,7 +11,7 @@ const Playlists = async ({ params }) => {
                 id={ params.id }
                 type={ type }
                 title={ title }
-                imgSrc={ picture_xl }
+                imgSrc={ picture_medium }
                 playlist={ tracks.data }
                 description={ description}
             />
