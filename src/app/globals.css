@@ -678,6 +678,7 @@ small,
   text-align: center;
 }
 
+.error-page,
 .not-found-page {
   display: flex;
   gap: 2vh;
@@ -688,6 +689,7 @@ small,
   justify-content: center;
 }
 
+.error-page h2,
 .not-found-page h2 {
   margin: 0;
 }
@@ -698,6 +700,7 @@ small,
   -webkit-text-fill-color: transparent;
 }
 
+.error-page button,
 .not-found-page a {
   color: var(--color-text-light);
   padding: 1em 1em;
