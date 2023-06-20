@@ -42,6 +42,7 @@ const useWavesurfer = (waveContainerRef, audio) => {
 
     return {
         handlePlayPause: () => waveSurferRef?.current?.playPause(),
+        audioVolume,
         setAudioVolume,
         isPlaying,
     }

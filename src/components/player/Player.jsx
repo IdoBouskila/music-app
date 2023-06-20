@@ -4,14 +4,14 @@ import useWavesurfer from '@/hooks/useWavesurfer';
 import VolumeSlider from './VolumeSlider';
 import { formatDuration } from '@/utils/app-helper';
 import { useDispatch, useSelector } from 'react-redux';
-import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdVolumeUp } from 'react-icons/md';
+import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdVolumeUp, MdVolumeMute } from 'react-icons/md';
 import { playNextSong, playPreviousSong, selectCurrentSong } from '@/redux/features/songsSlice';
 
 const Player = () => {
     const dispatch = useDispatch();
     const waveContainerRef = useRef(null);
     const { album, title, artist, preview: audioSrc, duration } = useSelector(selectCurrentSong);
-    const { handlePlayPause, isPlaying, setAudioVolume } = useWavesurfer(waveContainerRef, audioSrc);
+    const { handlePlayPause, isPlaying, setAudioVolume, audioVolume } = useWavesurfer(waveContainerRef, audioSrc);
     const formattedDuration = formatDuration(duration);
 
     return (
@@ -50,14 +50,16 @@ const Player = () => {
                 <span className='duration'>{ formattedDuration }</span>
 
                 <div className='volume-slider-container'>
-                    <button>
-                        <MdVolumeUp />
+                    <button onClick={ () => setAudioVolume((prev) => prev === 0 ? 1 : 0) }>
+                        { audioVolume ? <MdVolumeUp /> : <MdVolumeMute /> }
                     </button>
 
                     {
                         audioSrc &&
-                            <VolumeSlider onChange={ (value) => setAudioVolume(value) } />
-                        
+                            <VolumeSlider
+                                audioVolume={ audioVolume }
+                                onChange={ (value) => setAudioVolume(value) }
+                            />
                     }
                 </div>
             </div>

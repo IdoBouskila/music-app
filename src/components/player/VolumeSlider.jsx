@@ -1,6 +1,6 @@
 import * as Slider from '@radix-ui/react-slider';
 
-const VolumeSlider = ({ onChange }) => {
+const VolumeSlider = ({ onChange, audioVolume }) => {
     return (
         <Slider.Root
             className="slider-root"
@@ -8,7 +8,7 @@ const VolumeSlider = ({ onChange }) => {
             min={ 0 }
             step={ 0.1 }
             max={ 1 }
-            defaultValue={ [1] }
+            value={ [audioVolume] }
             onValueChange={ (value) => onChange(value) }
         >
             <Slider.Track className="slider-track">
