@@ -691,6 +691,14 @@ small,
     font-size: 10px;
   }
 
+  .app-logo {
+    justify-content: center;
+  }
+
+  .sidebar .app-logo span {
+    display: none;
+  }
+
   .home-container {
     display: flex;
     flex-direction: column;
