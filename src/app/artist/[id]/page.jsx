@@ -30,14 +30,14 @@ const ArtistPage = async ({ params: { id } }) => {
                 <Carousel header='Albums'>
                 {
                     artistAlbums.map((album) => {
-                        const { id, title, cover_xl, release_date } = album;
+                        const { id, title, cover_medium, release_date } = album;
                         const releaseYear = getYearFromDate(release_date);
 
                         return (
                             <LinkCardItem
                                 key={ id }
                                 title={ title }
-                                imgSrc= { cover_xl }
+                                imgSrc= { cover_medium }
                                 href={ `/album/${ id }` }
                                 description={ `Album | ${ releaseYear }` }
                             />

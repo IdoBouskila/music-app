@@ -4,7 +4,7 @@ import { getYearFromDate } from "@/utils/app-helper";
 import { fetchAlbum } from "@/utils/fetchers";
 
 const AlbumPage = async ({ params }) => {
-    const { title, cover_xl, release_date, tracks, type } = await fetchAlbum(params.id);
+    const { title, cover_medium, release_date, tracks, type } = await fetchAlbum(params.id);
     const releaseYear = getYearFromDate(release_date);
 
     return (
@@ -14,7 +14,7 @@ const AlbumPage = async ({ params }) => {
                 type={ type }
                 title={ title }
                 description={ `Album • ${ releaseYear }` }
-                imgSrc={ cover_xl }
+                imgSrc={ cover_medium }
                 playlist={ tracks.data }
             />
 

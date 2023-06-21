@@ -17,7 +17,7 @@ const Player = () => {
     return (
         <>
             <div className={ audioSrc ? 'player' : 'player disable' }>
-                <img src={ album?.cover_xl } alt='' />
+                <img src={ album?.cover_medium } alt='' />
 
                 <div className='song-details'>
                     <span className='song-title overflowing-text'>{ title }</span>

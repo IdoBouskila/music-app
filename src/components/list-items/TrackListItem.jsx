@@ -15,7 +15,7 @@ const TrackListItem = ({ index, playlist, track: { id, title, duration, artist, 
             className='track-list-item'
             onClick={ () => dispatch(playSong({index, playlist})) }
         >
-            <img src={ album.cover_xl } alt="" />
+            <img src={ album.cover_medium } alt="" />
 
             <div className='song-details'>
                 <div>
