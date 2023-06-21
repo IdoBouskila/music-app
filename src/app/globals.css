@@ -3,6 +3,7 @@
   --color-text-dark: #2d2e37;
   --color-text-gray: rgba(255, 255, 255, 0.5);
   --color-pink: rgb(205, 25, 179);
+  --color-scrollbar-thumb: rgba(255, 255, 255, 0.2);
 }
 
 * {
@@ -17,6 +18,25 @@
 body {
   height: 100vh;
   background: #14172d;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb);
+  border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+*::-webkit-scrollbar {
+  background: transparent;
+  width: 6px;
 }
 
 button {
