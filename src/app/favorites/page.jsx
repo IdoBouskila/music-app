@@ -3,6 +3,8 @@ import { SWRConfig } from 'swr';
 import { fetchProxyMultipleEntities } from '@/utils/fetchers';
 import TabsContainer from '@/components/favorites-page/TabsContainer';
 import * as Tabs from '@radix-ui/react-tabs';
+import { Suspense } from 'react';
+import Loader from '../loading';
 
 const FavoritesPage = () => {
     return (
@@ -18,14 +20,16 @@ const FavoritesPage = () => {
                 <Tabs.Trigger value='playlists'>Playlists</Tabs.Trigger>
             </Tabs.List>
 
-            <SWRConfig
-                value={{
-                    fetcher: fetchProxyMultipleEntities,
-                    suspense: true
-                }}
-            >
-                <TabsContainer />
-            </SWRConfig>
+            <Suspense fallback={ <Loader /> }>
+                <SWRConfig
+                    value={{
+                        fetcher: fetchProxyMultipleEntities,
+                        suspense: true
+                    }}
+                >
+                    <TabsContainer />
+                </SWRConfig>
+            </Suspense>
         </Tabs.Root>
     );
 };

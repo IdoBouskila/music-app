@@ -678,7 +678,7 @@ small,
   padding: 0 2.5em;
 }
 
-.tabs-container div:not(.tablist) {
+.tabs-container div:not(.tablist, .loader div) {
   height: 100%;
   min-height: 0;
 }
