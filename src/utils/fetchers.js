@@ -103,15 +103,11 @@ export async function fetchRadio(id) {
 export async function fetchSearchData(query, { limit = 3 } = {}) {
     const endpoint = (category) => `/search/${ category }?q=${ query }&limit=${ limit }`;
     
-    const tracks = await fetchData(endpoint('track'));
-    const albums = await fetchData(endpoint('album'));
-    const artists = await fetchData(endpoint('artist'));
+    const tracksPromise = fetchData(endpoint('track'));
+    const albumsPromise = fetchData(endpoint('album'));
+    const artistsPromise = fetchData(endpoint('artist'));
 
-    return {
-        track: tracks.data,
-        album: albums.data,
-        artist: artists.data,
-    };
+    return await Promise.all([tracksPromise, albumsPromise, artistsPromise]);
 }
 
 export async function fetchProxySearchData(query) {
