@@ -694,6 +694,7 @@ small,
   font-weight: 400;
   font-size: 1em;
   padding: 1em;
+  border-bottom: 2px solid transparent;
 }
 
 .tablist button[data-state='active'] {
