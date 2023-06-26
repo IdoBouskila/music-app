@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { formatDuration } from '@/utils/app-helper';
+import { formatDuration } from '@/utils/formatters';
 import { useDispatch } from 'react-redux';
 import { playSong } from '@/redux/features/songsSlice';
 import FavoriteButton from '../others/FavoriteButton';

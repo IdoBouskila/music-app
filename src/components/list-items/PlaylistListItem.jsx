@@ -1,4 +1,4 @@
-import { getYearFromDate } from '@/utils/app-helper';
+import { getYearFromDate } from '@/utils/formatters';
 import Link from 'next/link';
 
 const PlaylistListItem = ({ id, title, imgSrc, creation_date }) => {

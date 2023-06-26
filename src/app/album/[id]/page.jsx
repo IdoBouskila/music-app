@@ -1,6 +1,6 @@
 import IntroContainer from "@/components/others/IntroContainer";
 import TrackListContainer from "@/components/others/TrackListContainer";
-import { getYearFromDate } from "@/utils/app-helper";
+import { getYearFromDate } from "@/utils/formatters";
 import { fetchAlbum } from "@/utils/fetchers";
 
 const AlbumPage = async ({ params }) => {

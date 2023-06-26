@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { getYearFromDate } from '@/utils/app-helper';
+import { getYearFromDate } from '@/utils/formatters';
 import LinkCardItem from '@/components/list-items/LinkCardItem';
 
 const AlbumsTabContent = ({ albums }) => {

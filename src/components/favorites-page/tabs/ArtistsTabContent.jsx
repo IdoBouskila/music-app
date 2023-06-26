@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { compactNumber } from '@/utils/app-helper';
+import { compactNumber } from '@/utils/formatters';
 import LinkCardItem from '@/components/list-items/LinkCardItem';
 
 const ArtistsTabContent = ({ artists }) => {

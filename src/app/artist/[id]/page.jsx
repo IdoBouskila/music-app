@@ -2,7 +2,7 @@ import LinkCardItem from "@/components/list-items/LinkCardItem";
 import Carousel from "@/components/others/Carousel";
 import IntroContainer from "@/components/others/IntroContainer";
 import TrackListContainer from "@/components/others/TrackListContainer";
-import { compactNumber, getYearFromDate } from "@/utils/app-helper";
+import { compactNumber, getYearFromDate } from "@/utils/formatters";
 import { fetchArtist, fetchArtistAlbums, fetchArtistTopTracks } from "@/utils/fetchers";
 
 const ArtistPage = async ({ params: { id } }) => {

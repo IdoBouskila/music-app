@@ -2,7 +2,7 @@
 import { useRef } from 'react';
 import useWavesurfer from '@/hooks/useWavesurfer';
 import VolumeSlider from './VolumeSlider';
-import { formatDuration } from '@/utils/app-helper';
+import { formatDuration } from '@/utils/formatters';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdSkipPrevious, MdSkipNext, MdPlayArrow, MdPause, MdVolumeUp, MdVolumeMute } from 'react-icons/md';
 import { playNextSong, playPreviousSong, selectCurrentSong } from '@/redux/features/songsSlice';

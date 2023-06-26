@@ -1,4 +1,4 @@
-import { getCarouselData } from "@/utils/carousel-helper";
+import { getCarouselData } from "@/utils/carousel";
 import { useEffect, useState } from "react";
 
 const useCarousel = (carousel) => {

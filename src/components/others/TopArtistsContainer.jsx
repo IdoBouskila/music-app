@@ -1,6 +1,6 @@
 import { fetchTopArtists } from '@/utils/fetchers';
 import LinkCardItem from '../list-items/LinkCardItem';
-import { compactNumber } from '@/utils/app-helper';
+import { compactNumber } from '@/utils/formatters';
 
 const TopArtistsContainer = async ({ limit }) => {
     const artists = await fetchTopArtists({ limit });
