@@ -3,7 +3,7 @@ import useSWR from 'swr';
 import SearchResultItem from './SearchResultItem';
 
 const SearchResults = ({ query }) => {
-    const { data: resultsObj, error, isLoading } = useSWR(query, async () => {
+    const { data: resultsObj = {}, error, isLoading } = useSWR(query, async () => {
         const response = await fetch(`/api/search?q=${ query }`);
         return await response.json();
     });
@@ -18,7 +18,6 @@ const SearchResults = ({ query }) => {
                 { error && <strong>Something went wrong...</strong>}
 
                 {
-                    resultsObj && 
                     Object.keys(resultsObj).map(type => {
                         return (
                             <div key={ type }>

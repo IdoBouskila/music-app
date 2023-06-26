@@ -12,14 +12,15 @@ const options = {
     barGap: 3,
 };
 
-const useWavesurfer = (waveContainerRef, audio, onFinish) => {
+const useWavesurfer = (waveContainerRef, audioSrc, onFinish) => {
     const waveSurferRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [audioVolume, setAudioVolume] = useState(1);
 
     useEffect(() => {
-        waveSurferRef.current = WaveSurfer.create({ ...options,
-            url: audio,
+        waveSurferRef.current = WaveSurfer.create({
+            ...options,
+            url: audioSrc,
             container: waveContainerRef.current,
             height: waveContainerRef.current.clientHeight,
         });
@@ -33,7 +34,7 @@ const useWavesurfer = (waveContainerRef, audio, onFinish) => {
         return () => {
             waveSurferRef.current.destroy();
         };
-    }, [audio]);
+    }, [audioSrc]);
 
     waveSurferRef?.current?.setVolume(audioVolume);
 
