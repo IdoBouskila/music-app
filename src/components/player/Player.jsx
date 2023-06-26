@@ -11,7 +11,7 @@ const Player = () => {
     const dispatch = useDispatch();
     const waveContainerRef = useRef(null);
     const { album, title, artist, preview: audioSrc, duration } = useSelector(selectCurrentSong);
-    const { handlePlayPause, isPlaying, setAudioVolume, audioVolume } = useWavesurfer(waveContainerRef, audioSrc);
+    const { handlePlayPause, isPlaying, setAudioVolume, audioVolume } = useWavesurfer(waveContainerRef, audioSrc, () => dispatch(playNextSong()));
     const formattedDuration = formatDuration(duration);
 
     return (
