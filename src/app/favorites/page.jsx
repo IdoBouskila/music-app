@@ -23,7 +23,15 @@ const FavoritesPage = () => {
             <Suspense fallback={ <Loader /> }>
                 <SWRConfig
                     value={{
-                        fetcher: fetchProxyMultipleEntities,
+                        fetcher: async ({ entitiesId, endpoint }) => {
+                            const promises = entitiesId.map(async (id) => {
+                                const res = await fetch(endpoint + '/' + id);
+                                
+                                return res.json();
+                            });
+                            
+                            return await Promise.all(promises);
+                        },
                         suspense: true
                     }}
                 >
@@ -33,5 +41,9 @@ const FavoritesPage = () => {
         </Tabs.Root>
     );
 };
+
+const swrFetcher = async ({ entitiesIds, endpoint }) => {
+    
+}
 
 export default FavoritesPage;

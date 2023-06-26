@@ -109,18 +109,3 @@ export async function fetchSearchData(query, { limit = 3 } = {}) {
 
     return await Promise.all([tracksPromise, albumsPromise, artistsPromise]);
 }
-
-export async function fetchProxySearchData(query) {
-    const response = await fetch(`/api/search?q=${ query }`);
-    return await response.json();
-}
-
-export async function fetchProxyMultipleEntities({ entitiesId, endpoint}) {
-    const promises = entitiesId.map(async (id) => {
-        const res = await fetch(endpoint + '/' + id);
-        
-        return res.json();
-    });
-    
-    return await Promise.all(promises);
-}

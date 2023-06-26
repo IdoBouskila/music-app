@@ -1,10 +1,12 @@
 'use client';
 import useSWR from 'swr';
-import { fetchProxySearchData } from '@/utils/fetchers';
 import SearchResultItem from './SearchResultItem';
 
 const SearchResults = ({ query }) => {
-    const { data: resultsObj, error, isLoading } = useSWR(query, fetchProxySearchData);
+    const { data: resultsObj, error, isLoading } = useSWR(query, async () => {
+        const response = await fetch(`/api/search?q=${ query }`);
+        return await response.json();
+    });
 
     return (
         <>
