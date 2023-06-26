@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import PlaylistListItem from '@/components/list-items/PlaylistListItem';
 
 const PlaylistsTabContent = ({ playlists }) => {
-    const { data } = useSWR({ entitiesId: playlists, endpoint: '/api/playlist' });
+    const { data } = useSWR({ entitiesIds: playlists, endpoint: '/api/playlist' });
 
     return (
         <ul>

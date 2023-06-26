@@ -3,7 +3,7 @@ import { compactNumber } from '@/utils/formatters';
 import LinkCardItem from '@/components/list-items/LinkCardItem';
 
 const ArtistsTabContent = ({ artists }) => {
-    const { data } = useSWR({ entitiesId: artists, endpoint: '/api/artist' });
+    const { data } = useSWR({ entitiesIds: artists, endpoint: '/api/artist' });
 
     return (
         <ul>

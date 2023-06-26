@@ -23,8 +23,8 @@ const FavoritesPage = () => {
             <Suspense fallback={ <Loader /> }>
                 <SWRConfig
                     value={{
-                        fetcher: async ({ entitiesId, endpoint }) => {
-                            const promises = entitiesId.map(async (id) => {
+                        fetcher: async ({ entitiesIds, endpoint }) => {
+                            const promises = entitiesIds.map(async (id) => {
                                 const res = await fetch(endpoint + '/' + id);
                                 
                                 return res.json();

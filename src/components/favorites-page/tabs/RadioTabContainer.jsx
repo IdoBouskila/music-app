@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import LinkCardItem from '@/components/list-items/LinkCardItem';
 
 const RadioTabContainer = ({ radios }) => {
-    const { data } = useSWR({ entitiesId: radios, endpoint: '/api/radio' });
+    const { data } = useSWR({ entitiesIds: radios, endpoint: '/api/radio' });
 
     return (
         <ul>

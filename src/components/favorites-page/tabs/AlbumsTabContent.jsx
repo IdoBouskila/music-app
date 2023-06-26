@@ -3,7 +3,7 @@ import { getYearFromDate } from '@/utils/formatters';
 import LinkCardItem from '@/components/list-items/LinkCardItem';
 
 const AlbumsTabContent = ({ albums }) => {
-    const { data } = useSWR({ entitiesId: albums, endpoint: '/api/album' });
+    const { data } = useSWR({ entitiesIds: albums, endpoint: '/api/album' });
 
     return (
         <ul>
