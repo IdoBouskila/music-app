@@ -18,7 +18,7 @@ const Playlists = async () => {
                                 key={ id }
                                 title={ title }
                                 imgSrc={ picture_medium }
-                                creation_date={ creation_date }
+                                creationDate={ creation_date }
                             />
                         );
                     })

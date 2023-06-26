@@ -1,8 +1,8 @@
 import { getYearFromDate } from '@/utils/formatters';
 import Link from 'next/link';
 
-const PlaylistListItem = ({ id, title, imgSrc, creation_date }) => {
-    const createdYear = getYearFromDate(creation_date);
+const PlaylistListItem = ({ id, title, imgSrc, creationDate }) => {
+    const createdYear = getYearFromDate(creationDate);
 
     return (
         <li className='playlist-item'>
