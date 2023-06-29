@@ -647,8 +647,9 @@ small,
 }
 
 .intro-buttons .favorite {
-  aspect-ratio: 1;
   padding: 0.75em;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-container {
