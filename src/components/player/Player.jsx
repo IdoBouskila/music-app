@@ -50,15 +50,15 @@ const Player = () => {
                 <span className='duration'>{ formattedDuration }</span>
 
                 <div className='volume-slider-container'>
-                    <button onClick={ () => setAudioVolume((prev) => prev === 0 ? 1 : 0) }>
-                        { audioVolume ? <MdVolumeUp /> : <MdVolumeMute /> }
+                    <button onClick={ () => setAudioVolume((prev) => ({ ...prev, isMuted: prev.value <= 0 ? true : ! prev.isMuted })) }>
+                        { audioVolume.isMuted ? <MdVolumeMute /> : <MdVolumeUp /> }
                     </button>
 
                     {
                         audioSrc &&
                             <VolumeSlider
                                 audioVolume={ audioVolume }
-                                onChange={ (value) => setAudioVolume(value) }
+                                onChange={ ([ value ]) => { setAudioVolume({ isMuted: value <= 0 ? true : false, value }) } }
                             />
                     }
                 </div>

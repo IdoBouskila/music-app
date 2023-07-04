@@ -15,7 +15,7 @@ const options = {
 const useWavesurfer = (waveContainerRef, audioSrc, onFinish) => {
     const waveSurferRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [audioVolume, setAudioVolume] = useState(1);
+    const [audioVolume, setAudioVolume] = useState({ isMuted: false, value: 1, });
 
     useEffect(() => {
         waveSurferRef.current = WaveSurfer.create({
@@ -29,14 +29,14 @@ const useWavesurfer = (waveContainerRef, audioSrc, onFinish) => {
         waveSurferRef.current.on('pause', () => setIsPlaying(false));
         waveSurferRef.current.on('finish', () => onFinish());
         
-        waveSurferRef.current.setVolume(audioVolume);
+        waveSurferRef.current.setVolume(audioVolume.isMuted ? 0 : audioVolume.value);
         
         return () => {
             waveSurferRef.current.destroy();
         };
     }, [audioSrc]);
 
-    waveSurferRef?.current?.setVolume(audioVolume);
+    waveSurferRef?.current?.setVolume(audioVolume.isMuted ? 0 : audioVolume.value);
 
     return {
         handlePlayPause: () => waveSurferRef?.current?.playPause(),

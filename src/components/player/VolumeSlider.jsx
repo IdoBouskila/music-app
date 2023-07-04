@@ -8,7 +8,7 @@ const VolumeSlider = ({ onChange, audioVolume }) => {
             min={ 0 }
             step={ 0.1 }
             max={ 1 }
-            value={ [audioVolume] }
+            value={ [audioVolume.isMuted ? 0 : audioVolume.value] }
             onValueChange={ (value) => onChange(value) }
         >
             <Slider.Track className="slider-track">
